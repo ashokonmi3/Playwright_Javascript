@@ -1,0 +1,119 @@
+{
+  "cookies": [
+    {
+      "name": "_gid",
+      "value": "GA1.2.762032011.1729855544",
+      "domain": ".goodcv.com",
+      "path": "/",
+      "expires": 1729941948,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "_gat_gtag_UA_157731363_1",
+      "value": "1",
+      "domain": ".goodcv.com",
+      "path": "/",
+      "expires": 1729855604,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "G_ENABLED_IDPS",
+      "value": "google",
+      "domain": ".www.goodcv.com",
+      "path": "/",
+      "expires": 1764415544.429816,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "_gcl_au",
+      "value": "1.1.515295441.1729855545",
+      "domain": ".goodcv.com",
+      "path": "/",
+      "expires": 1737631545,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "_fbp",
+      "value": "fb.1.1729855544787.244427299625794650",
+      "domain": ".goodcv.com",
+      "path": "/",
+      "expires": 1737631549,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "IDE",
+      "value": "AHWqTUlBMF-gl03553eU8OXEPmr4GEBqIl4mFTe3yBwTPV-OoY5Cd90MshWribzT",
+      "domain": ".doubleclick.net",
+      "path": "/",
+      "expires": 1764415546.487516,
+      "httpOnly": true,
+      "secure": true,
+      "sameSite": "None"
+    },
+    {
+      "name": "XSRF-TOKEN",
+      "value": "eyJpdiI6Iit5eE43ekVQUWxqTmplQ0tvY29VVWc9PSIsInZhbHVlIjoiOTBSTkFqejFUZ2wwcWc4NFNPemhLbHVVRkJPMkpRYm1EemVJVDF2YVA4dExIZ0pmc2NVNzhxOXBaRnVzNDhFcWJONUt0QzgrQ1hHcHE2NFFBclpIWDJXelBySzdLSFhZY2NFbFJqODFaYU9jdUxMOWFieWp2dzVcLzV4U0J4b3hlIiwibWFjIjoiNGI3MTk5NDUzMGZjYjJmMmJmMzY3MjQzNDMyYWY1NWE2YzE5YjM4MWQ2YzY2ODcwMDJiYTVmM2U4ZjMyMTA3YiJ9",
+      "domain": "www.goodcv.com",
+      "path": "/",
+      "expires": 1729862748.643565,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "laravel_session",
+      "value": "eyJpdiI6Ik96MUkwNUlkeXRRdkQzSnRCdEZkSVE9PSIsInZhbHVlIjoiczU0dnFSZEU2RlRlaDRGdTJxY0k5MmZzQnlkekdYZ0JKYVFTNVBBcGJUbmRYaFwvTVNJYWZWTnNjZWZNNlMySGVqUEFtRE9WWlRmUklBcDJORzdDb3gyZUp2S2VJY1hxZWl6dFVYaDJoSHdjZHpZZDRpWnArU2ZcLys0eGFoWmFpbCIsIm1hYyI6IjEzNmUyMDI1YjdlMGNhMWMwY2VkYzE3MGQwYjM5NTJmMDYwZGEzZTVlYzU3ZTEwYjYxZDdlZDNlMGViMDA0MjIifQ%3D%3D",
+      "domain": "www.goodcv.com",
+      "path": "/",
+      "expires": 1729862748.643808,
+      "httpOnly": true,
+      "secure": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "_ga_RMCNQFN538",
+      "value": "GS1.1.1729855544.1.1.1729855548.0.0.0",
+      "domain": ".goodcv.com",
+      "path": "/",
+      "expires": 1764415548.875507,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "_ga",
+      "value": "GA1.1.1535379560.1729855544",
+      "domain": ".goodcv.com",
+      "path": "/",
+      "expires": 1764415548.87597,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    }
+  ],
+  "origins": [
+    {
+      "origin": "https://www.goodcv.com",
+      "localStorage": [
+        {
+          "name": "lastExternalReferrer",
+          "value": "empty"
+        },
+        {
+          "name": "lastExternalReferrerTime",
+          "value": "1729855544596"
+        }
+      ]
+    }
+  ]
+}

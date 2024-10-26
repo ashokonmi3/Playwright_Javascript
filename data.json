@@ -1,0 +1,11 @@
+{
+    "name": "John Doe",
+    "age": 35,
+    "city": "New York",
+    "skills": [
+        "Python",
+        "Machine Learning",
+        "Automation",
+        "Cloud Computing"
+    ]
+}

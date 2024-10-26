@@ -1,0 +1,13 @@
+{
+    "employee": {
+        "name": "Tom",
+        "age": 35,
+        "address": {
+            "street": "123 Main St",
+            "city": "Los Angeles",
+            "state": "CA"
+        }
+    },
+    "salary": 60000,
+    "status": true
+}
