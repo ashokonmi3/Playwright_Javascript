@@ -67,7 +67,7 @@ test.describe('Playwright Documentation Search Input Tests', () => {
 });
 
 /**
- * Interview Questions:
+ *  Questions:
  * 1. What is the purpose of the `expect` API in Playwright?
  *    - The `expect` API is used to perform assertions in Playwright tests, ensuring that the expected state of elements matches the actual state.
  *

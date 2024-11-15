@@ -47,7 +47,7 @@ test.describe('Select Dropdown Interactions', () => {
         await page.goto('https://bootswatch.com/default/', { waitUntil: 'networkidle' });
 
         // Step 3: Wait for 2 seconds to ensure the page is fully loaded
-        await page.waitForTimeout(2000);
+        await page.waitForTimeout(300);
 
         // Example 1: Interact with a single-select dropdown
         // ----------------------------------------------
@@ -57,13 +57,13 @@ test.describe('Select Dropdown Interactions', () => {
 
         // Select options from the single-select dropdown
         await singleSelect.selectOption('4'); // Select by value
-        await page.waitForTimeout(2000); // Wait for 2 seconds to observe the selection
+        // await page.waitForTimeout(2000); // Wait for 2 seconds to observe the selection
 
         await singleSelect.selectOption('2'); // Select another option by value
-        await page.waitForTimeout(2000);
+        await page.waitForTimeout(200);
 
         await singleSelect.selectOption({ index: 2 }); // Select by index
-        await page.waitForTimeout(2000);
+        await page.waitForTimeout(200);
 
         // Count the number of options available in the dropdown
         const optionCount = await page.locator('select#exampleSelect1 option');
@@ -77,10 +77,10 @@ test.describe('Select Dropdown Interactions', () => {
 
         // Select multiple options from the multi-select dropdown
         await multiSelect.selectOption(['2', '4']); // Select multiple options
-        await page.waitForTimeout(2000);
+        await page.waitForTimeout(200);
 
         await multiSelect.selectOption(['1', '3', '5']); // Select another set of options
-        await page.waitForTimeout(2000);
+        await page.waitForTimeout(200);
 
         // Close the browser
         await browser.close();

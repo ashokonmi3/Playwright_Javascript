@@ -110,3 +110,44 @@ test.describe('Event Listener Tests', () => {
 5. **Why is it important to handle events like `request` and `response`?**
    - Handling `request` and `response` events is crucial for debugging network activity, analyzing the flow of data, and ensuring the application's functionality during automated testing.
 */
+
+// Browser and Browser Context Events
+// These events apply to the browser and browserContext objects and often relate to page management, such as opening or closing pages.
+
+// browserContext.on('page'): Fired when a new page is created in the context.
+// browserContext.on('close'): Fired when the browser context is closed.
+// Page Events
+// The page object emits a wide variety of events for interaction with the page, including loading, dialog handling, network requests, and more.
+
+// page.on('close'): Fired when the page is closed.
+// page.on('console'): Fired when a console message is logged (e.g., console.log).
+// page.on('dialog'): Fired when a dialog (alert, prompt, etc.) appears.
+// page.on('domcontentloaded'): Fired when the DOM content has been loaded (before full page load).
+// page.on('download'): Fired when a file download is initiated on the page.
+// page.on('filechooser'): Fired when a file chooser dialog is triggered, such as with an <input type="file">.
+// page.on('frameattached'): Fired when a new frame is attached to the page.
+// page.on('framedetached'): Fired when a frame is detached from the page.
+// page.on('framenavigated'): Fired when a frame navigates to a new URL.
+// page.on('load'): Fired when the full page has been loaded, including resources.
+// page.on('pageerror'): Fired when a page error occurs, such as an uncaught JavaScript error.
+// page.on('popup'): Fired when a new popup (child) page is created from the current page (e.g., from window.open()).
+// page.on('request'): Fired when a network request is made.
+// page.on('requestfailed'): Fired when a network request fails.
+// page.on('requestfinished'): Fired when a network request is completed successfully.
+// page.on('response'): Fired when a network response is received.
+// page.on('worker'): Fired when a new Web Worker or Service Worker is created on the page.
+// page.on('websocket'): Fired when a WebSocket connection is established.
+// page.on('websocketclosed'): Fired when a WebSocket connection is closed.
+// page.on('websocketerror'): Fired when there’s an error with a WebSocket connection.
+// WebSocket Events
+// If you are working with WebSockets, Playwright allows you to listen for events related to WebSocket connections.
+
+// webSocket.on('framereceived'): Fired when a WebSocket frame is received.
+// webSocket.on('framesent'): Fired when a WebSocket frame is sent.
+// webSocket.on('close'): Fired when the WebSocket is closed.
+// webSocket.on('error'): Fired when an error occurs in the WebSocket.
+// Worker Events
+// If there are workers (like Service Workers) running on the page, Playwright can capture their lifecycle events:
+
+// worker.on('close'): Fired when a worker is terminated.
+// worker.on('error'): Fired when an error occurs in a worker.

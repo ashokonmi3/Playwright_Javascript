@@ -3,6 +3,7 @@
 // test.describe('Text Locator Test Suite', () => {
 //     let browser;
 //     let page;
+//     let context;
 
 //     /**
 //      * Runs before each test case to open a fresh browser instance and context.
@@ -15,12 +16,14 @@
 //             // args: ["--start-maximized"] // Start browser maximized
 //         });
 
-//         // Create a new browser context
-//         const context = await browser.newContext({
-//             ignoreHTTPSErrors: true,  // Ignore HTTPS certificate issues
+//         context = await browser.newContext({
+//             // viewport: { width: 3840, height: 2160 }, // Set viewport to 4K resolution
+//             viewport: { width: 1920, height: 1080 } // Set to a standard max resolution
+
+
 //         });
 
-//         // Open a new page (tab) in the browser context
+//         // Open a new browser page (tab) in the new context
 //         page = await context.newPage();
 
 //         // Navigate to the website
@@ -33,31 +36,38 @@
 //      */
 //     test('Test Text Locators and Interaction', async () => {
 //         // Locate and highlight the text "with faded secondary text"
-//         const fadedText = page.locator('text=with faded secondary text');
-//         await fadedText.scrollIntoViewIfNeeded(); // Scrolls into view if not already visible
-//         await fadedText.evaluate(el => el.style.border = '2px solid red'); // Highlights by adding red border
-
+//         // Highlights by adding red border
+//         const middleButtonText = page.locator('text=Middle');
+//         await middleButtonText.scrollIntoViewIfNeeded();
+//         await middleButtonText.evaluate(el => el.style.border = '2px solid red');
 //         // Locate and highlight the text "Small button"
 //         const smallButtonText = page.locator('text=Small button');
 //         await smallButtonText.scrollIntoViewIfNeeded();
 //         await smallButtonText.evaluate(el => el.style.border = '2px solid red');
 
 //         // Click on the "Middle" button text
-//         const middleButtonText = page.locator('text=Middle');
-//         await middleButtonText.scrollIntoViewIfNeeded();
+//         // const middleButtonText = page.locator('text=Middle');
+//         // await middleButtonText.scrollIntoViewIfNeeded();
+//         // await middleButtonText.evaluate(el => el.style.border = '2px solid red');
+
 //         await middleButtonText.click(); // Click action
 
+//         const fadedText = page.locator('text=with faded secondary text').first();
+//         await fadedText.scrollIntoViewIfNeeded(); // Scrolls into view if not already visible
+//         await fadedText.evaluate(el => el.style.border = '2px solid red');
+
 //         // Locate and highlight the text containing "fine print"
-//         const finePrintText = page.locator('text=fine print');
-//         await finePrintText.scrollIntoViewIfNeeded();
-//         await finePrintText.evaluate(el => el.style.border = '2px solid red'); // Highlight with a red border
+//         // const finePrintText = page.locator('text=fine print');
+//         // await finePrintText.scrollIntoViewIfNeeded();
+//         // await finePrintText.evaluate(el => el.style.border = '2px solid red'); // Highlight with a red border
 //     });
 
 //     /**
 //      * Runs after each test case to close the page and browser.
 //      */
 //     test.afterEach(async () => {
-//         await page.close();      // Close the page
+//         await page.close();
+//         await context.close()      // Close the page
 //         await browser.close();   // Close the browser
 //     });
 // });

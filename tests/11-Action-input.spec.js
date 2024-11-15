@@ -46,7 +46,7 @@ test.describe('Input Field Interaction Test Suite', () => {
         await page.goto('https://bootswatch.com/default/');
 
         // Wait for 2 seconds before performing actions
-        await page.waitForTimeout(2000);
+        // await page.waitForTimeout(2000);
 
         // Example 1: Interact with an input field by placeholder text
         const inputField = page.getByPlaceholder('Enter email');
@@ -54,27 +54,27 @@ test.describe('Input Field Interaction Test Suite', () => {
         // Scroll into view if needed before highlighting
         await inputField.scrollIntoViewIfNeeded();
         await inputField.highlight(); // Highlight the input field
-        await page.waitForTimeout(2000);
+        // await page.waitForTimeout(2000);
 
         // Fill the input field with a value, clearing any existing value
         await inputField.fill('ashokonmi@gmail.com');
-        await page.waitForTimeout(2000);
+        await page.waitForTimeout(200);
 
         // Clear the input field
         await inputField.clear();
-        await page.waitForTimeout(2000);
+        await page.waitForTimeout(200);
 
         // Type into the input field with simulated keystrokes
         await inputField.type('ashokonmi@gmail.com');
-        await page.waitForTimeout(2000);
+        await page.waitForTimeout(200);
 
         // Clear the input field again
         await inputField.clear();
-        await page.waitForTimeout(2000);
+        await page.waitForTimeout(200);
 
         // Type into the input field with a delay between keystrokes
         await inputField.type('ashokonmi@gmail.com', { delay: 200 }); // Delay in milliseconds
-        await page.waitForTimeout(2000);
+        await page.waitForTimeout(200);
 
         // Clear the input field one more time
         await inputField.clear();
@@ -83,7 +83,7 @@ test.describe('Input Field Interaction Test Suite', () => {
         const validInputField = page.getByLabel('Valid input', { exact: true });
         await validInputField.scrollIntoViewIfNeeded(); // Scroll into view if needed
         await validInputField.highlight(); // Highlight the valid input field
-        await page.waitForTimeout(2000);
+        await page.waitForTimeout(200);
 
         // Retrieve and print the current value of the input field
         const validInputValue = await validInputField.inputValue();

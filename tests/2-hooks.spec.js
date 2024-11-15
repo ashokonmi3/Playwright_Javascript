@@ -8,6 +8,8 @@ test.describe('Test Suite with Hooks', () => {
 
     // Runs before each test case
     test.beforeEach(async ({ page }) => {
+        console.log('test execution started');
+
         await page.goto('https://example.com');
     });
 
@@ -25,6 +27,8 @@ test.describe('Test Suite with Hooks', () => {
 
     // Runs after each test case
     test.afterEach(async ({ page }) => {
+        console.log('test execution complete');
+
         await page.close();
     });
 
@@ -33,3 +37,32 @@ test.describe('Test Suite with Hooks', () => {
         console.log('Cleanup after all tests');
     });
 });
+
+
+// Execute something only once for this complete test suite
+// before all --> create log file
+
+// before each launch example.com
+// test1
+// after each close browser
+
+// launch example.com
+// test2
+// launch example.com
+
+// launch example.com
+// test3
+// launch example.com
+
+// launch example.com
+// test4
+// launch example.com
+
+
+
+// after all --> save this file
+
+// test1
+// laucnh example.com
+// execute test
+// close browser 

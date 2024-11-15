@@ -71,7 +71,7 @@ test.describe('Custom Wait Tests', () => {
         const firstTableData = page.locator("td.film-title").first();
         await firstTableData.scrollIntoViewIfNeeded(); // Scroll into view if needed
         await firstTableData.waitFor(); // Wait for the first table data to appear
-
+        // default wait is 30seconds
         // Calculate the time taken for the movies to load
         const timeTaken = (performance.now() - start) / 1000;
         console.log(`...movies are loaded, in ${timeTaken.toFixed(2)}s!`);

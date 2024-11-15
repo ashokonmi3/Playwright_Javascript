@@ -72,7 +72,9 @@ test.describe('Dialog and Ad Handling Tests', () => {
         await page.route('**/*', blockAds);
 
         // Navigate to the website that triggers dialogs (e.g., CNN)
-        await page.goto("https://edition.cnn.com/", { timeout: 45000 });
+        await page.goto("https://www.rediff.com/", { timeout: 45000 });
+        // await page.goto("https://edition.cnn.com/", { timeout: 45000 });
+
         console.log("Page loaded, waiting...");
 
         // Wait for 5 seconds to observe the interactions

@@ -55,9 +55,7 @@ test.describe('Get By Role Locator Test Suite', () => {
         // The getByRole locator searches for elements based on their accessibility role.
         // In this case, we are looking for a button with the name "Default button".
         const docsButton = await page.getByRole('button', { name: "Default button" });
-
-        // Optional: Scroll down the page by 1000 pixels if needed
-        // await page.evaluate(() => window.scrollBy(0, 1000)); // Uncomment if scrolling is necessary
+        const docsButton1 = await page.getByRole();
 
         // Highlight the located button for visual confirmation
         // This will add a red border around the button for easier identification.
