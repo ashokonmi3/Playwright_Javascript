@@ -31,7 +31,7 @@ test.describe('Handle New Tab Demo', () => {
 
       // Create a new browser context with specified viewport and error handling
       const context = await browser.newContext({
-         viewport: { width: 3840, height: 2160 }, // Set viewport to 4K resolution
+         viewport: { width: 1720, height: 1440 },
          ignoreHTTPSErrors: true,                // Ignore HTTPS errors for smoother testing
       });
 

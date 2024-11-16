@@ -22,7 +22,7 @@ test.describe('Playwright Documentation Element State Tests', () => {
       // Launch the browser in UI mode
       browser = await chromium.launch({
          headless: false, // Runs in UI mode
-         slowMo: 500 // Slows down actions by 500ms for visibility
+         slowMo: 5000 // Slows down actions by 500ms for visibility
       });
       page = await browser.newPage();
       await page.goto(URL); // Navigate to the specified URL

@@ -19,7 +19,8 @@ test.describe('Playwright Documentation Navigation Tests', () => {
       const browser = await chromium.launch({
          headless: false,
          slowMo: 500, // Slow down actions by 500ms for better visibility
-         viewport: { width: 3840, height: 2160 }, // Set to your screen resolution
+         // viewport: { width: 3840, height: 2160 }, // Set to your screen resolution
+         size: { width: 1280, height: 720 },
       });
 
       // Create a new browser context
@@ -49,7 +50,7 @@ test.describe('Playwright Documentation Navigation Tests', () => {
 
       // Stop tracing and save it to a file
       await context.tracing.stop({ path: 'trace333.zip' });
-
+      // Traaceviewer https://trace.playwright.dev/
       // Close the browser context and browser
       await context.close();
       await browser.close();
@@ -63,18 +64,4 @@ test.describe('Playwright Documentation Navigation Tests', () => {
  *    Answer: Tracing captures detailed information about the test execution, including
  *    screenshots, snapshots, and source code. This information can be used for debugging
  *    and understanding the flow of the test.
- *
- * 2. How does the `record_video` option work in Playwright?
- *    Answer: The `record_video` option specifies the directory where the recorded videos
- *    will be saved. Each video is associated with a browser context and is saved after
- *    the context is closed.
- *
- * 3. Why is it important to scroll an element into view before interacting with it?
- *    Answer: Some elements may not be visible on the screen, and attempting to interact
- *    with such elements can result in errors. Scrolling them into view ensures they are
- *    interactable and prevents unexpected failures in tests.
- *
- * 4. What does the `slowMo` option do in Playwright?
- *    Answer: The `slowMo` option adds a delay between each action taken by the test,
- *    which helps in observing the actions as they occur, making debugging easier.
  */

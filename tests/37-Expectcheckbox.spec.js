@@ -21,10 +21,12 @@ test.describe('Checkbox Expect Tests', () => {
       // Launch the Chromium browser (non-headless for visibility)
       browser = await chromium.launch({
          headless: false, // Run tests in a visible browser window
-         slowMo: 500 // Slow down actions for visibility
+         slowMo: 5000 // Slow down actions for visibility
       });
       page = await browser.newPage({
-         viewport: { width: 3840, height: 2160 } // Set to your screen resolution
+         // viewport: { width: 3840, height: 2160 } // Set to your screen resolution
+                  viewport: { width: 1720, height: 1440 },
+
       });
       await page.goto(URL); // Navigate to the Bootswatch page
    });

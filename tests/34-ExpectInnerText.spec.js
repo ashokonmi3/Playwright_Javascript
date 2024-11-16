@@ -25,7 +25,9 @@ test.describe('Playwright Documentation Inner Text Tests', () => {
          slowMo: 500, // Slows down actions by 500ms for visibility
       });
       page = await browser.newPage({
-         viewport: { width: 3840, height: 2160 } // Set to your screen resolution
+         // viewport: { width: 3840, height: 2160 } // Set to your screen resolution
+         viewport: { width: 1720, height: 1440 },
+
       });
       await page.goto(URL); // Navigate to the specified URL
    });
@@ -37,6 +39,7 @@ test.describe('Playwright Documentation Inner Text Tests', () => {
       // Expect API: Check if the dropdown menu contains the text "Python"
       await dropdownMenu.scrollIntoViewIfNeeded(); // Scroll into view if needed
       await expect(dropdownMenu).toContainText("Python");
+      // Playwright doesn't need the dropdown to be visible for this check; it only needs the element and its text to exist in the DOM.
       console.log("Dropdown menu contains 'Python'.");
 
       // Expect API: Check if the dropdown menu contains the text "Node.js"

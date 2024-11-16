@@ -43,6 +43,8 @@ test.describe('Load Delay Handling Tests', () => {
 
       // 6. Perform actions on the button if needed (like clicking it)
       await delayedButton.click();
+      await page.close();
+
    });
 });
 

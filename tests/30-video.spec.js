@@ -41,7 +41,7 @@ test('Page has Get Started link', async () => {
    await browser.close();
 });
 
-// Interview Questions:
+//  Questions:
 /*
 1. How do you record a video in Playwright using the test script itself?
    Answer: By creating a browser context with the `recordVideo` option, specifying the directory where the video should be saved and the resolution.

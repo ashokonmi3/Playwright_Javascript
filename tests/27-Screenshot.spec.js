@@ -20,7 +20,10 @@ const { test, expect } = require('@playwright/test');
 test.describe('Screenshot Example', () => {
    test('should take a screenshot of the visible portion of the page', async ({ page }) => {
       // Test setup: Slow down execution and set a large viewport
-      await page.setViewportSize({ width: 3840, height: 2160 }); // Set viewport resolution
+      // await page.setViewportSize({ width: 3840, height: 2160 }); // Set viewport resolution
+      await page.setViewportSize({ width: 1720, height: 1440 }); // Set viewport resolution
+
+
       await page.goto('https://bootswatch.com/default/', { waitUntil: 'load', slowMo: 500 });
 
       // Scroll to ensure the element to be highlighted is visible
@@ -29,7 +32,7 @@ test.describe('Screenshot Example', () => {
 
       // Take a screenshot of the visible portion of the page
       await page.screenshot({
-         path: 'visible_page_screenshot.png', // Save screenshot with this file name
+         path: 'visible_page_screenshot1.png', // Save screenshot with this file name
          fullPage: false // Take a screenshot only of the visible area
       });
 

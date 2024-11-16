@@ -1,8 +1,7 @@
 const { chromium } = require('playwright');
 const { test } = require('@playwright/test'); // Importing the test function from Playwright
 
-test.describe('New Tab Handling Test Suite', () => {
-   /**
+/**
     * This function demonstrates how to handle new tabs in Playwright.
     *
     * **Key Concepts Covered:**
@@ -18,6 +17,10 @@ test.describe('New Tab Handling Test Suite', () => {
     * 3. Click the button to open the new tab and switch focus between the original and new tabs.
     */
 
+
+
+test.describe('New Tab Handling Test Suite', () => {
+
    test('Handle New Tab Demo', async () => {
       // Launch the browser in non-headless mode with slow motion
       const browser = await chromium.launch({
@@ -28,54 +31,33 @@ test.describe('New Tab Handling Test Suite', () => {
       // Create a new browser context with a specified viewport
       const context = await browser.newContext({
          ignoreHTTPSErrors: true,
-         viewport: { width: 3840, height: 2160 }, // Set to your screen resolution
+         viewport: { width: 1720, height: 1440 },
       });
 
       const page = await context.newPage();
 
       // Navigate to the test page that opens a new tab
-      await page.goto("https://demoqa.com/browser-windows");
-
+      await page.goto("https://demoqa.com/browser-windows", { waitUntil: 'domcontentloaded' });
+      console.log("here");
       const button = page.locator("#tabButton");
-      // await button.scrollIntoViewIfNeeded(); // Scroll into view if needed
+      console.log("there");
 
-      // Click the button that opens a new tab
-      // await button.click();
-      // Wait for the new page to open
-      // const newPage = await context.waitForEvent('page'); // Wait for the new page event
-
-
+    
       const [newPage] = await Promise.all([
-         context.waitForEvent('page'), // Wait for the new page event
+         context.waitForEvent('page'), // Wait for the new page event (new tab)
          button.click()                // Click the button that opens a new tab
       ]);
 
-      // Wait for the new tab to fully load
-      await newPage.waitForLoadState();
-
       // Print the URL of the new tab
       console.log(`New tab URL: ${newPage.url()}`);
-
-
-      // Wait for the new tab to fully load
-      await newPage.waitForLoadState();
-
-      // Print the URL of the new tab
-      console.log(`New tab URL: ${newPage.url()}`);
-      // Wait a bit for demonstration purposes
-      await newPage.waitForTimeout(5000);
 
       // Switch back to the original page
       await page.bringToFront(); // Bring the original page to focus
       console.log(`Original page URL: ${page.url()}`);
 
-      await page.waitForTimeout(5000);
-
       // Switch back to the new tab
       await newPage.bringToFront(); // Bring the new tab back to focus
       console.log(`Switched back to new tab URL: ${newPage.url()}`);
-
-      await newPage.waitForTimeout(1000);
 
       // Close the new tab after use (optional)
       await newPage.close();
@@ -83,6 +65,7 @@ test.describe('New Tab Handling Test Suite', () => {
       // Close the browser (optional)
       await browser.close();
    });
+
 });
 
 // Interview Questions:

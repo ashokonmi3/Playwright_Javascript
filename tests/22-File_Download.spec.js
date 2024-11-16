@@ -1,6 +1,6 @@
 const { chromium } = require('playwright');
 const { test } = require('@playwright/test');
-
+const path = require('path');
 test.describe('File Download Test Suite', () => {
    /**
     * Event handler that is triggered when a download starts.
@@ -11,7 +11,12 @@ test.describe('File Download Test Suite', () => {
    async function onDownload(download) {
       console.log("Download received!");
       // Saves the downloaded file after completion.
-      await download.saveAs("night21.jpg");
+      const downloadpath = path.join(__dirname, 'night22.jpg');
+      console.log(downloadpath);
+      await download.saveAs(downloadpath);
+      // await download.saveAs("night22.jpg");
+      // todo logic to check download completed 
+      // check the file exists in that path having a timeout of expected download time
    }
 
    /**
@@ -43,13 +48,14 @@ test.describe('File Download Test Suite', () => {
       // Launch a browser in non-headless mode with a slow motion delay of 500ms
       const browser = await chromium.launch({
          headless: false,
-         slowMo: 500,
+         slowMo: 5000,
       });
 
       // Create a new browser context with specific viewport settings
       const context = await browser.newContext({
          ignoreHTTPSErrors: true,
-         viewport: { width: 3840, height: 2160 } // Set to your screen resolution
+         // viewport: { width: 3840, height: 2160 } // Set to your screen resolution
+         viewport: { width: 1720, height: 1440 },
       });
 
       const page = await context.newPage();
@@ -69,14 +75,6 @@ test.describe('File Download Test Suite', () => {
 
       // Trigger download by clicking the button
       await btn.click();
-
-      // Wait for the download event to be fired
-      const download = await page.waitForEvent('download');
-
-      // Handle the download to save the file
-      await download.saveAs("night21.jpg");
-
-      // Close the browser after the actions are completed
       await browser.close();
    });
 });

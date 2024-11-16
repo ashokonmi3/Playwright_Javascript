@@ -22,7 +22,9 @@ test.describe('Dynamic Progress Bar Verification', () => {
 
       // Create a new browser context and page
       const context = await browser.newContext({
-         viewport: { width: 3840, height: 2160 } // Set to your screen resolution
+         // viewport: { width: 3840, height: 2160 } // Set to your screen resolution
+         viewport: { width: 1720, height: 1440 } // Set to your screen resolution
+
       });
       const page = await context.newPage();
 

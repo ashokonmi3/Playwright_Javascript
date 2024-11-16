@@ -19,13 +19,15 @@ test.describe('Playwright Documentation Navigation Tests', () => {
       const browser = await chromium.launch({
          headless: false,
          slowMo: 500, // Slow down actions by 500ms for better visibility
-         viewport: { width: 3840, height: 2160 }, // Set to your screen resolution
+         // viewport: { width: 3840, height: 2160 }, // Set to your screen resolution
+         viewport: { width: 1720, height: 1440 },
+
       });
 
       // Create a new browser context
       const context = await browser.newContext();
 
-      
+
 
       // Create a new page in the context
       const page = await context.newPage();
@@ -84,9 +86,7 @@ test.describe('Playwright Documentation Navigation Tests', () => {
  * Q2: How does expect differ from assert?
  * A2: expect is asynchronous and designed for web testing, allowing for retries and automatic waiting for conditions. assert (or console.assert in JavaScript) is synchronous and used for immediate condition checks.
  * 
- * Q3: Why is slowMo used in the configuration?
- * A3: The slowMo option slows down operations for better visualization during tests. This is useful for debugging and understanding test flow.
  * 
- * Q4: How can we ensure that an element is visible before interacting with it?
+ * Q3: How can we ensure that an element is visible before interacting with it?
  * A4: By using the expect API, such as expect(locator).toBeVisible(), Playwright automatically waits until the element is visible before performing actions.
  */

@@ -23,7 +23,9 @@ test.describe('Dynamic Click Handling', () => {
 
       // Create a new browser context and page with specified viewport
       const context = await browser.newContext({
-         viewport: { width: 3840, height: 2160 } // Set to your screen resolution
+         // viewport: { width: 3840, height: 2160 } // Set to your screen resolution
+         viewport: { width: 1720, height: 1440 } // Set to your screen resolution
+
       });
       const page = await context.newPage();
 
@@ -38,7 +40,9 @@ test.describe('Dynamic Click Handling', () => {
       // Click the button that ignores DOM event clicks
       console.log("Clicking the 'Button That Ignores DOM Click Event'...");
       await btn.click();
-
+      // document.getElementById("badButton").addEventListener("click", () => {
+      //    console.log("Button clicked!");
+      // });
       // Step 3: Verify that the button has changed its class
       console.log("Verifying that the button has changed to 'btn btn-success'...");
       await expect(btn).toHaveClass('btn btn-success');
