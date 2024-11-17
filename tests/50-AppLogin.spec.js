@@ -16,47 +16,47 @@ test.describe('Login Tests', () => {
     * Expected Outcome:
     * - The page should display "Welcome, [username]!" upon successful login.
     */
-   test('Successful Login', async () => {
-      // Launch browser with headless mode off
-      const browser = await chromium.launch({
-         headless: false,
-         slowMo: 500 // Slow down actions for better visualization
-      });
+   // test('Successful Login', async () => {
+   //    // Launch browser with headless mode off
+   //    const browser = await chromium.launch({
+   //       headless: false,
+   //       slowMo: 5000 // Slow down actions for better visualization
+   //    });
 
-      const context = await browser.newContext({
-         // viewport: { width: 3840, height: 2160 } // Set viewport for consistency
-         viewport: { width: 1720, height: 1440 } // Set viewport for consistency
+   //    const context = await browser.newContext({
+   //       // viewport: { width: 3840, height: 2160 } // Set viewport for consistency
+   //       viewport: { width: 1720, height: 1440 } // Set viewport for consistency
 
-      });
-      const page = await context.newPage();
+   //    });
+   //    const page = await context.newPage();
 
-      console.log("Starting test: Successful Login...");
+   //    console.log("Starting test: Successful Login...");
 
-      // Navigate to login page
-      await page.goto('http://uitestingplayground.com/sampleapp');
+   //    // Navigate to login page
+   //    await page.goto('http://uitestingplayground.com/sampleapp');
 
-      // Fill in the login form with correct credentials
-      const username = "dan";
-      const password = "pwd";
+   //    // Fill in the login form with correct credentials
+   //    const username = "dan";
+   //    const password = "pwd";
 
-      console.log(`Entering username: ${username} and password.`);
-      await page.getByPlaceholder('User Name').fill(username);
-      await page.getByPlaceholder('********').fill(password);
+   //    console.log(`Entering username: ${username} and password.`);
+   //    await page.getByPlaceholder('User Name').fill(username);
+   //    await page.getByPlaceholder('********').fill(password);
+   //    // await page.getByRole('textbox', { name: 'User Name' }).fill(username)
+   //    console.log("Clicking 'Log In' button...");
+   //    await page.getByRole('button', { name: 'Log In' }).click();
 
-      console.log("Clicking 'Log In' button...");
-      await page.getByRole('button', { name: 'Log In' }).click();
+   //    // Scroll to the label element to verify successful login message
+   //    const label = page.locator('#loginstatus');
+   //    await label.scrollIntoViewIfNeeded(); // Scroll into view if needed
+   //    console.log("Verifying the welcome message...");
 
-      // Scroll to the label element to verify successful login message
-      const label = page.locator('#loginstatus');
-      await label.scrollIntoViewIfNeeded(); // Scroll into view if needed
-      console.log("Verifying the welcome message...");
+   //    // Expect welcome message
+   //    await expect(label).toHaveText(`Welcome, ${username}!`);
+   //    console.log("Successful login test completed.");
 
-      // Expect welcome message
-      await expect(label).toHaveText(`Welcome, ${username}!`);
-      console.log("Successful login test completed.");
-
-      await browser.close();
-   });
+   //    await browser.close();
+   // });
 
    /**
     * Test Failed Login

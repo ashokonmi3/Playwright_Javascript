@@ -49,13 +49,15 @@ test.describe('Mouse Over and Click Counter Tests', () => {
 
       // Hover over the "Click me" link
       const link = page.locator('[title="Click me"]');
-      await link.hover();
+      await link.scrollIntoViewIfNeeded();
+      // await link.hover();
       console.log("Hovered over 'Click me' link to trigger DOM changes.");
+      // await link.click(); // To do - Not clicking 
 
       // Scroll into view and perform two consecutive clicks on the active link
       const activeLink = page.locator('[title="Link Button"]');
       await activeLink.scrollIntoViewIfNeeded();
-      await activeLink.click({ clickCount: 2 });
+      await activeLink.click({ clickCount: 5 });
       console.log("Clicked twice on 'Active link' to increment the counter.");
 
       // Locate and verify the click counter

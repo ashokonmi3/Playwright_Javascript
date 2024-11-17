@@ -41,7 +41,7 @@ test('Monitor Network Events', async () => {
 
    page.on('response', async response => {
       console.log(`Response: ${response.status()} ${response.url()}`);
-      console.log(`Response Body: ${await response.body()}`);
+      // console.log(`Response Body: ${await response.body()}`);
    });
 
    // Navigate to a webpage (e.g., Playwright's official site)

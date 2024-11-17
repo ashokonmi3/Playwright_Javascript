@@ -50,7 +50,7 @@ test.describe('Network Routing Demo', () => {
 
       // Navigate to a webpage (e.g., Playwright's official site)
       await page.goto('https://playwright.dev/');
-      await page.waitForTimeout(2000); // Wait for 2 seconds for visibility
+      await page.waitForTimeout(20000); // Wait for 2 seconds for visibility
 
       // Take a screenshot of the page
       await page.screenshot({ path: 'playwright_imageblocked.jpg', fullPage: true });

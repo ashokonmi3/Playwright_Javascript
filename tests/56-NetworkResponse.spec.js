@@ -56,7 +56,7 @@ test.describe('Network Fulfillment Demo', () => {
       await page.goto("https://playwright.dev/");
 
       // Wait for a moment to ensure the request is made and fulfilled
-      await page.waitForTimeout(2000);
+      await page.waitForTimeout(20000);
       await page.screenshot({ path: "playwright_modified_response.jpg", fullPage: false });
 
       // Close the page

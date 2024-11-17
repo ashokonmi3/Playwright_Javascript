@@ -34,14 +34,13 @@ test.describe('Network Routing Demonstration', () => {
       });
 
       // Create a new browser context and page with specified viewport
-      const context = await browser.newContext({
-         // viewport: { width: 3840, height: 2160 } // Set to your screen resolution
-                  viewport: { width: 1720, height: 1440 },
+      const context = await browser.newContext({         // viewport: { width: 3840, height: 2160 } // Set to your screen resolution
+         viewport: { width: 1720, height: 1440 },
 
       });
       const page = await context.newPage();
 
-      // Event listener function to block requests
+      // Event listener function to block requests- should be before any network call
       await page.route('**/*.png', async route => {
          console.log(`Request aborted: ${route.request().url()}`);
          await route.abort();  // Abort the request
@@ -49,7 +48,7 @@ test.describe('Network Routing Demonstration', () => {
 
       // Navigate to a webpage (e.g., Playwright's official site)
       await page.goto('https://playwright.dev/');
-      await page.waitForTimeout(2000); // Wait for 2 seconds to enhance visibility
+      await page.waitForTimeout(20000); // Wait for 2 seconds to enhance visibility
 
       // Take a screenshot of the page
       await page.screenshot({ path: 'playwright_without_png.jpg', fullPage: true });
@@ -60,6 +59,17 @@ test.describe('Network Routing Demonstration', () => {
       await browser.close();
    });
 });
+
+// Rout patterns matching
+// 1) **/*.png
+// 2) https://example.com/* intercepts all requests to example.com
+// 3) */* match all requests
+// 4) *.jpg - match reqests for jpg files
+// Use cases:
+// 1) Blocking ads or tracking
+// 2) Mocking Network Response
+// 3) Test error conditions
+// 4) Simulating slow network  
 
 /*
 ================================================
