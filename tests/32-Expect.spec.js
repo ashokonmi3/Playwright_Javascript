@@ -7,6 +7,7 @@ const { test, expect, chromium } = require('@playwright/test');
  * and screenshots for better debugging and understanding of test execution.
  */
 
+// DEFAULT TIMEOUT is 5 SECONDS
 // Define the URL you expect after clicking the "GET STARTED" link
 const DOCS_URL = "https://playwright.dev/python/docs/intro";
 
@@ -17,19 +18,14 @@ test.describe('Playwright Documentation Navigation Tests', () => {
    test('Verify GET STARTED link navigation', async ({ }) => {
       // Launch a Chromium-based browser instance with specified options
       const browser = await chromium.launch({
-         headless: false,
-         slowMo: 500, // Slow down actions by 500ms for better visibility
-         // viewport: { width: 3840, height: 2160 }, // Set to your screen resolution
-         viewport: { width: 1720, height: 1440 },
-
+         // headless: false, // Run in headless mode
+         slowMo: 5000,
       });
 
-      // Create a new browser context
-      const context = await browser.newContext();
+      const context = await browser.newContext({
+         viewport: { width: 1720, height: 1440 },
+      });
 
-
-
-      // Create a new page in the context
       const page = await context.newPage();
 
       // Navigate to the Playwright Python documentation website
@@ -50,8 +46,7 @@ test.describe('Playwright Documentation Navigation Tests', () => {
       await expect(page).toHaveTitle(/Installation | Playwright Python/);
 
       // Close the browser context and browser
-      await context.close();
-      await browser.close();
+      await page.close();
    });
 });
 

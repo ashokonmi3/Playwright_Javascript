@@ -22,7 +22,7 @@ test.describe('Playwright Documentation Inner Text Tests', () => {
       // Launch the browser in UI mode
       browser = await chromium.launch({
          headless: false, // Runs in UI mode
-         slowMo: 500, // Slows down actions by 500ms for visibility
+         slowMo: 5000, // Slows down actions by 500ms for visibility
       });
       page = await browser.newPage({
          // viewport: { width: 3840, height: 2160 } // Set to your screen resolution

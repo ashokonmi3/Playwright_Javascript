@@ -19,4 +19,4 @@ test('this test will also pass', async () => {
 });
 
 
-// npx playwright test 75 - RetryallfailedCase.spec.js--retries = 3
+// npx playwright test 75-RetryallfailedCase.spec.js --retries = 3

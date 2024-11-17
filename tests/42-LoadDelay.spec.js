@@ -18,13 +18,13 @@ const { test, expect } = require('@playwright/test');
  * 3. Verify that the button is visible.
  * 4. Perform actions on the button if necessary.
  */
-
+// 30 seconds defaultiimeout
 test.describe('Load Delay Handling Tests', () => {
    test('Handle Delayed Button Appearance', async ({ page }) => {
       // 1. Navigate to the base page with slow motion for better visualization
       await page.goto("http://uitestingplayground.com/", {
          slowMo: 500,
-         viewport: { width: 3840, height: 2160 }, // Set to your screen resolution
+         viewport: { width: 1720, height: 1440 },
       });
 
       // 2. Find the link to the 'Load Delay' page and click it
@@ -37,6 +37,8 @@ test.describe('Load Delay Handling Tests', () => {
 
       // 4. Wait for the button to be available and visible
       await delayedButton.waitFor();
+      // await delayedButton.waitFor({timeout:5000});
+
 
       // 5. Assert that the button is visible
       await expect(delayedButton).toBeVisible();

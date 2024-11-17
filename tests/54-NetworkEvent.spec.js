@@ -28,7 +28,9 @@ test('Monitor Network Events', async () => {
 
    // Create a new browser context and page with specified viewport
    const context = await browser.newContext({
-      viewport: { width: 3840, height: 2160 } // Set to your screen resolution
+      // viewport: { width: 3840, height: 2160 } // Set to your screen resolution
+      viewport: { width: 1720, height: 1440 },
+
    });
    const page = await context.newPage();
 

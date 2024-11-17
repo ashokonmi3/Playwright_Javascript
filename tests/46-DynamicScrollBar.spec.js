@@ -42,10 +42,6 @@ test.describe('Dynamic Scrollbar Handling', () => {
       console.log("Scrolling the button into view...");
       await btn.scrollIntoViewIfNeeded(); // Scroll into view if needed
 
-      // Optional: Click the button (uncomment if needed)
-      // console.log("Clicking the button...");
-      // await btn.click();
-
       // Step 4: Take a screenshot to confirm visibility
       console.log("Taking a screenshot of the page...");
       await page.screenshot({ path: "test-scrollbars.jpg" });

@@ -24,7 +24,7 @@ test.describe('Dynamic Table Handling', () => {
       // Create a new browser context and page with specified viewport
       const context = await browser.newContext({
          // viewport: { width: 3840, height: 2160 } // Set to your screen resolution
-                  viewport: { width: 1720, height: 1440 } // Set to your screen resolution
+         viewport: { width: 1720, height: 1440 } // Set to your screen resolution
 
       });
       const page = await context.newPage();
@@ -36,6 +36,10 @@ test.describe('Dynamic Table Handling', () => {
       // Step 2: Extract the CPU percentage from the warning label
       const label = await page.locator("p.bg-warning").innerText();
       console.log(`Extracted label text: ${label}`);
+
+      // Chrome CPU: 5.9 % split by space
+      // [Chrome, CPU: , 5.9%]
+
       // Get the last word which is the CPU percentage
       const percentage = label.split(" ").pop(); // Last word of the label is the CPU percentage
       console.log(`CPU Percentage extracted: ${percentage}`);
@@ -43,7 +47,7 @@ test.describe('Dynamic Table Handling', () => {
       // Step 3: Locate all column headers and find the index for the CPU column
       const columnHeaders = page.getByRole("columnheader");
       let cpuColumn = null;
-
+     
       for (let index = 0; index < await columnHeaders.count(); index++) {
          const columnHeader = columnHeaders.nth(index);
          if (await columnHeader.innerText() === "CPU") {
@@ -52,7 +56,7 @@ test.describe('Dynamic Table Handling', () => {
             break;
          }
       }
-
+      console.log("cpuColumn: " + cpuColumn);
       // Ensure CPU column is found
       if (cpuColumn === null) {
          throw new Error("CPU column not found!");

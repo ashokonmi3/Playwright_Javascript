@@ -32,11 +32,12 @@ test.describe('Screenshot Example', () => {
 
       // Take a screenshot of the visible portion of the page
       await page.screenshot({
-         path: 'visible_page_screenshot1.png', // Save screenshot with this file name
+         path: 'visible_page_screenshot111.png', // Save screenshot with this file name
          fullPage: false // Take a screenshot only of the visible area
       });
 
       console.log('Screenshot of the visible part of the page has been taken.');
+      await page.close();
    });
 });
 

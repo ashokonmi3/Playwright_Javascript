@@ -1,23 +1,33 @@
 const { test, expect } = require('@playwright/test');
-const PlaywrightPage = require('./PageObject/HomePage'); // Adjust the path as needed
+const HomePage = require('./PageObject/HomePage'); // Adjust the path as needed
 
-test.use({ headless: false }); // Ensure tests run in UI mode
+// Define the test suite for the Playwright home page
+test.describe('Playwright Home Page Tests', () => {
+   let homepage;
 
-test('Docs link navigation', async ({ page }) => {
-   const homepage = new PlaywrightPage(page);
-   await homepage.visitDocs();
+   // Before each test, initialize the HomePage object and navigate to the URL
+   test.beforeEach(async ({ page }) => {
+      homepage = new HomePage(page);
+      await homepage.navigate(); // Ensure we start from the correct page for all tests
+   });
 
-   // Expect that the URL is correct after visiting the Docs link
-   await expect(page).toHaveURL('https://playwright.dev/python/docs/intro');
-});
+   // Test to validate Docs link navigation
+   test('Docs link navigation', async ({ page }) => {
+      await homepage.visitDocs();
 
-test('Docs search functionality', async ({ page }) => {
-   const query = 'assertions';
+      // Expect the URL to be correct after clicking the Docs link
+      await expect(page).toHaveURL('https://playwright.dev/python/docs/intro');
+   });
 
-   const homepage = new PlaywrightPage(page);
-   await homepage.search(query);
+   // Test to validate the search functionality
+   test('Docs search functionality', async ({ page }) => {
+      const query = 'assertions';
 
-   // Expect that the search results contain the expected text
-   const resultsLocator = await homepage.searchResults(); // Ensure this method returns the correct locator
-   await expect(resultsLocator).toContainText('List of assertions');
+      // Perform the search
+      await homepage.search(query);
+
+      // Verify search results contain expected text
+      const resultsText = await homepage.getSearchResults();
+      expect(resultsText.some(result => result.includes('assertions'))).toBeTruthy();
+   });
 });

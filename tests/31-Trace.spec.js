@@ -65,3 +65,12 @@ test.describe('Playwright Documentation Navigation Tests', () => {
  *    screenshots, snapshots, and source code. This information can be used for debugging
  *    and understanding the flow of the test.
  */
+//  config.ts file we can enable trace for all test cases
+// use: {
+//    /* Base URL to use in actions like `await page.goto('/')`. */
+//    // baseURL: 'http://127.0.0.1:3000',
+
+//    /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
+//    trace: 'on-first-retry',
+//       headless: false,
+//   },
