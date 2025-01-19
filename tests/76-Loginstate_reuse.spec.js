@@ -22,7 +22,7 @@ const { chromium } = require('playwright');
    // Close the browser
    await browser.close();
 })();
-run using ctrl+f5
+// run using ctrl+f5
 // ashokonmi@gmail.com
 // 7676788856
 //
