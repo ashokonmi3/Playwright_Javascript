@@ -58,14 +58,17 @@ test.describe('Handle New Tab Demo', () => {
 
       // Print the URL of the new tab
       console.log(`New tab URL: ${newPage.url()}`);
+      await page.waitForTimeout(2000);
 
       // Switch back to the original page
       await page.bringToFront(); // Bring the original page into focus
       console.log(`Original page URL: ${page.url()}`);
+      await page.waitForTimeout(2000);
 
       // Switch back to the new tab
       await newPage.bringToFront(); // Bring the new tab back into focus
       console.log(`Switched back to new tab URL: ${newPage.url()}`);
+      await page.waitForTimeout(2000);
 
       // Close the browser after testing (optional, keep the session open if needed)
       await browser.close();

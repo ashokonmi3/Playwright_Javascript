@@ -37,7 +37,7 @@ test.describe('Input Field Interaction Test Suite', () => {
         const browser = await chromium.launch({ headless: false, slowMo: 500 });
         const context = await browser.newContext({
             ignoreHTTPSErrors: true,
-            viewport: { width: 3840, height: 2160 } // Set to your screen resolution
+            viewport: { width: 1920, height: 1080 } // Set to your screen resolution
         });
 
         page = await context.newPage();

@@ -36,7 +36,7 @@ test.describe('Playwright Auto-Waiting Test Suite', () => {
         // Set up the browser context with a viewport size and ignoring HTTPS errors
         const context = await browser.newContext({
             ignoreHTTPSErrors: true,
-            viewport: { width: 3840, height: 2160 }, // Set to your screen resolution
+            viewport: { width: 1920, height: 1080 }, // Set to your screen resolution
         });
 
         // Open a new page in the browser

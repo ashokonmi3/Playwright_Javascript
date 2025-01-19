@@ -54,7 +54,9 @@ test.describe('File Download Test Suite', () => {
       // Create a new browser context with specific viewport settings
       const context = await browser.newContext({
          ignoreHTTPSErrors: true,
-         // viewport: { width: 3840, height: 2160 } // Set to your screen resolution
+         // timeout: 60000 // Set global timeout to 60 seconds
+
+         // viewport: { width: 1920, height: 1080 } // Set to your screen resolution
          viewport: { width: 1720, height: 1440 },
       });
 

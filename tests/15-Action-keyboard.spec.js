@@ -37,7 +37,7 @@ test.describe('Keypress Simulation Test Suite', () => {
             slowMo: 500 // Slow down actions for better visibility
         });
         const context = await browser.newContext({
-            viewport: { width: 3840, height: 2160 }, // Set viewport size to screen resolution
+            viewport: { width: 1920, height: 1080 }, // Set viewport size to screen resolution
             ignoreHTTPSErrors: true
         });
 

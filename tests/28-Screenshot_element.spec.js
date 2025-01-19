@@ -23,7 +23,7 @@ test.describe('Element Screenshot Example', () => {
    test('should take a screenshot of a specific element', async () => {
       // Launch browser with headless set to false and slowMo to slow down actions
       const browser = await chromium.launch({ headless: false, slowMo: 500 });
-      // const context = await browser.newContext({ viewport: { width: 3840, height: 2160 } }); // Set viewport resolution
+      // const context = await browser.newContext({ viewport: { width: 1920, height: 1080 } }); // Set viewport resolution
       const context = await browser.newContext({ viewport: { width: 1720, height: 1440 } }); // Set viewport resolution
 
       const page = await context.newPage();

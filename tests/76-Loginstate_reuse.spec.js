@@ -17,8 +17,13 @@ const { chromium } = require('playwright');
    await page.goto("https://www.goodcv.com/login");
 
    // Optionally pause if you want to manually interact
-   // await page.pause();
+   await page.pause();
 
    // Close the browser
    await browser.close();
 })();
+run using ctrl+f5
+// ashokonmi@gmail.com
+// 7676788856
+//
+// https://forms.office.com/r/K2G2KrtDDC

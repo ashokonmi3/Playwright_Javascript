@@ -36,6 +36,7 @@ export default defineConfig({
     // slowMo: 5000, // Slows down actions by 500ms for visibility
     headless: false,
     launchOptions: {
+      headless: false,
       slowMo: 5000, // Slows down actions by 500ms for visibility
 
     },

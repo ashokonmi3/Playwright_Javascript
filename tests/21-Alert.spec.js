@@ -21,51 +21,51 @@ const { test } = require('@playwright/test');
  * - Synchronization: Ensuring that the script waits for the alert to be handled properly.
  */
 
-test.describe('Alert Handling Tests', () => {
-   test('should handle JavaScript alerts', async () => {
-      // Launch the browser in non-headless mode with a slow motion delay of 500ms
-      const browser = await chromium.launch({
-         headless: false,
-         slowMo: 5000 // Slow down actions for better visibility
-      });
-      const context = await browser.newContext({
-         // viewport: { width: 3840, height: 2160 }, // Set to your screen resolution
-         viewport: { width: 1720, height: 1440 }, // Set to your screen resolution
+// test.describe('Alert Handling Tests', () => {
+//    test('should handle JavaScript alerts', async () => {
+//       // Launch the browser in non-headless mode with a slow motion delay of 500ms
+//       const browser = await chromium.launch({
+//          headless: false,
+//          slowMo: 5000 // Slow down actions for better visibility
+//       });
+//       const context = await browser.newContext({
+//          // viewport: { width: 1920, height: 1080 }, // Set to your screen resolution
+//          viewport: { width: 1720, height: 1440 }, // Set to your screen resolution
 
-      });
-      const page = await context.newPage();
+//       });
+//       const page = await context.newPage();
 
-      // Navigate to the test page with the alert button
-      await page.goto("https://testpages.eviltester.com/styled/alerts/alert-test.html");
+//       // Navigate to the test page with the alert button
+//       await page.goto("https://testpages.eviltester.com/styled/alerts/alert-test.html");
 
-      // Register the event listener for dialog events (alerts)
-      page.on('dialog', handleDialog);
+//       // Register the event listener for dialog events (alerts)
+//       page.on('dialog', handleDialog);
 
-      // Locate the button that triggers the alert
-      const buttonLocator = page.getByText("Show alert box");
+//       // Locate the button that triggers the alert
+//       const buttonLocator = page.getByText("Show alert box");
 
-      // Scroll into view if needed and click the button to trigger the alert
-      await buttonLocator.scrollIntoViewIfNeeded();
-      await buttonLocator.click();
+//       // Scroll into view if needed and click the button to trigger the alert
+//       await buttonLocator.scrollIntoViewIfNeeded();
+//       await buttonLocator.click();
 
-      // Wait for a few seconds to ensure the alert is handled
-      await page.waitForTimeout(5000); // Adjust this time if needed based on alert appearance
+//       // Wait for a few seconds to ensure the alert is handled
+//       await page.waitForTimeout(5000); // Adjust this time if needed based on alert appearance
 
-      // Close the browser
-      await browser.close();
-   });
-});
-/**
- * Handles the dialog event by printing the alert text and accepting the alert.
- *
- * @param {Dialog} dialog - The dialog object representing the JavaScript alert.
- */
-async function handleDialog(dialog) {
-   console.log(`Alert text: ${dialog.message()}`); // Print the alert text to the console
-   // await page.waitForTimeout(5000); // Adjust this time if needed based on alert appearance
-   await new Promise(resolve => setTimeout(resolve, 2000))
-   dialog.accept(); // Accept the alert
-}
+//       // Close the browser
+//       await browser.close();
+//    });
+// });
+// // /**
+// //  * Handles the dialog event by printing the alert text and accepting the alert.
+// //  *
+// //  * @param {Dialog} dialog - The dialog object representing the JavaScript alert.
+// //  */
+// async function handleDialog(dialog) {
+//    console.log(`Alert text: ${dialog.message()}`); // Print the alert text to the console
+//    // await page.waitForTimeout(5000); // Adjust this time if needed based on alert appearance
+//    await new Promise(resolve => setTimeout(resolve, 2000))
+//    dialog.accept(); // Accept the alert
+// }
 // ===============================
 // Alert with accept and cancel button
 // test.describe('Alert Handling Tests', () => {
@@ -76,7 +76,7 @@ async function handleDialog(dialog) {
 //          slowMo: 500 // Slow down actions for better visibility
 //       });
 //       const context = await browser.newContext({
-//          // viewport: { width: 3840, height: 2160 } // Set to your screen resolution
+//          // viewport: { width: 1920, height: 1080 } // Set to your screen resolution
 //          viewport: { width: 1720, height: 1440 }, // Set to your screen resolution
 
 //       });
@@ -103,16 +103,17 @@ async function handleDialog(dialog) {
 //    });
 // });
 
-// /**
-//  * Handles the dialog event by printing the alert text and accepting the confirmation alert.
-//  *
+/**
+ * Handles the dialog event by printing the alert text and accepting the confirmation alert.
+ *
 //  * @param {Dialog} dialog - The dialog object representing the JavaScript confirmation alert.
 //  */
 // async function handleDialog(dialog) {
 //    console.log(`Confirmation alert text: ${dialog.message()}`); // Print the alert text to the console
 //    await new Promise(resolve => setTimeout(resolve, 2000));
-
 //    dialog.accept(); // Accept the confirmation alert
+
+//    // dialog.dismiss(); // dismiss the confirmation alert
 // }
 // ===================
 /**
@@ -135,53 +136,53 @@ async function handleDialog(dialog) {
  * - Synchronization: Waiting for actions to complete to ensure alerts are handled properly.
  *
  */
-// test.describe('Alert Handling Tests', () => {
-//    test('should handle JavaScript prompt alerts', async () => {
-//       // Launch the browser in non-headless mode with a slow motion delay of 500ms
-//       const browser = await chromium.launch({
-//          headless: false,
-//          slowMo: 5000, // Slow down actions for better visibility
-//       });
+test.describe('Alert Handling Tests', () => {
+   test('should handle JavaScript prompt alerts', async () => {
+      // Launch the browser in non-headless mode with a slow motion delay of 500ms
+      const browser = await chromium.launch({
+         headless: false,
+         slowMo: 5000, // Slow down actions for better visibility
+      });
 
-//       const context = await browser.newContext({
-//          ignoreHTTPSErrors: true,
-//          // viewport: { width: 3840, height: 2160 } // Set to your screen resolution
-//          viewport: { width: 1720, height: 1440 },
-//       });
+      const context = await browser.newContext({
+         ignoreHTTPSErrors: true,
+         // viewport: { width: 1920, height: 1080 } // Set to your screen resolution
+         viewport: { width: 1720, height: 1440 },
+      });
 
-//       const page = await context.newPage();
+      const page = await context.newPage();
 
-//       // Navigate to the test page with the prompt button
-//       await page.goto("https://testpages.eviltester.com/styled/alerts/alert-test.html");
+      // Navigate to the test page with the prompt button
+      await page.goto("https://testpages.eviltester.com/styled/alerts/alert-test.html");
 
-//       // Register the event listener for dialog events (prompts)
-//       page.on('dialog', handleDialog);
+      // Register the event listener for dialog events (prompts)
+      page.on('dialog', handleDialog);
 
-//       // Locate the button that triggers the prompt
-//       const buttonLocator = page.getByText("Show prompt box");
+      // Locate the button that triggers the prompt
+      const buttonLocator = page.getByText("Show prompt box");
 
-//       // Scroll into view if needed and click the button to trigger the prompt
-//       await buttonLocator.scrollIntoViewIfNeeded();
-//       await buttonLocator.click();
+      // Scroll into view if needed and click the button to trigger the prompt
+      await buttonLocator.scrollIntoViewIfNeeded();
+      await buttonLocator.click();
 
-//       // Wait for a few seconds to ensure the prompt is handled
-//       await page.waitForTimeout(5000); // Adjust this time if needed based on prompt appearance
+      // Wait for a few seconds to ensure the prompt is handled
+      await page.waitForTimeout(5000); // Adjust this time if needed based on prompt appearance
 
-//       // Close the browser
-//       await browser.close();
-//    });
-// });
+      // Close the browser
+      await browser.close();
+   });
+});
 
-// /**
-//  * Handles the dialog event by printing the prompt text and accepting the prompt.
-//  *
-//  * @param {Dialog} dialog - The dialog object representing the JavaScript prompt.
-//  */
-// async function handleDialog(dialog) {
-//    console.log(`Prompt text: ${dialog.message()}`); // Print the prompt text to the console
-//    await new Promise(resolve => setTimeout(resolve, 2000))
-//    await dialog.accept("hello"); // accept the prompt
-// }
+/**
+ * Handles the dialog event by printing the prompt text and accepting the prompt.
+ *
+ * @param {Dialog} dialog - The dialog object representing the JavaScript prompt.
+ */
+async function handleDialog(dialog) {
+   console.log(`Prompt text: ${dialog.message()}`); // Print the prompt text to the console
+   await new Promise(resolve => setTimeout(resolve, 2000))
+   await dialog.accept("Playwright Learning"); // accept the prompt
+}
 
 //  Questions and Answers
 /*

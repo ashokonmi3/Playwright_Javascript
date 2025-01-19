@@ -15,7 +15,7 @@ test.describe('CSS Selectors Example', () => {
         // Create a new browser context
         context = await browser.newContext({
             ignoreHTTPSErrors: true,  // Ignore HTTPS certificate issues
-            viewport: { width: 3840, height: 2160 } // Set to your screen resolution
+            viewport: { width: 1920, height: 1080 } // Set to your screen resolution
         });
 
         // Open a new page (tab) in the browser context
@@ -86,3 +86,7 @@ test.describe('CSS Selectors Example', () => {
         await browser.close();   // Close the browser
     });
 });
+
+
+// class  <input class='button'>  input.button 
+// id    <input id='button'>  input#button

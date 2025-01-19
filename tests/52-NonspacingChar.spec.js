@@ -40,7 +40,7 @@ test.describe('Non-Breaking Space Button Tests', () => {
 
       // Create a new browser context and page with specified viewport
       const context = await browser.newContext({
-         // viewport: { width: 3840, height: 2160 } // Set to your screen resolution
+         // viewport: { width: 1920, height: 1080 } // Set to your screen resolution
          viewport: { width: 1720, height: 1440 } // Set to your screen resolution
 
       });
@@ -60,6 +60,10 @@ test.describe('Non-Breaking Space Button Tests', () => {
 
       // Scroll into view if needed and click the button using a non-breaking space
       const buttonLocator = page.locator("//button[text()='My\u00a0Button']");
+      // unicode respresentation of &nbsp
+      //unicode for space \u0020
+      //unicode for copywright \uooA9
+      
       await buttonLocator.scrollIntoViewIfNeeded(); // Scroll into view if needed
       await buttonLocator.click(); // Click the button with non-breaking space
       await page.waitForTimeout(2000); // Wait for 2 seconds after clicking

@@ -25,7 +25,7 @@ test.describe('Dynamic ID Expect Tests', () => {
          slowMo: 500 // Slow down actions for visibility
       });
       page = await browser.newPage({
-         // viewport: { width: 3840, height: 2160 } // Set to your screen resolution
+         // viewport: { width: 1920, height: 1080 } // Set to your screen resolution
          viewport: { width: 1720, height: 1440 },
 
       });

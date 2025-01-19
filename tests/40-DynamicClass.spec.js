@@ -27,10 +27,10 @@ test.describe('Dynamic Class Attribute Tests', () => {
          slowMo: 5000 // Slow down actions for visibility
       });
       page = await browser.newPage({
-         // viewport: { width: 3840, height: 2160 } // Set to your screen resolution
+         // viewport: { width: 1920, height: 1080 } // Set to your screen resolution
 
-         
-         
+
+
       });
       await page.goto(URL); // Navigate to the target page
    });

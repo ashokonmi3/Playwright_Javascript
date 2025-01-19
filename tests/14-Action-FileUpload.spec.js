@@ -39,7 +39,7 @@
 //         // Create a new browser context with the specified viewport size
 //         const context = await browser.newContext({
 //             ignoreHTTPSErrors: true,
-//             viewport: { width: 3840, height: 2160 } // Set to your screen resolution
+//             viewport: { width: 1920, height: 1080 } // Set to your screen resolution
 //         });
 
 //         // Create a new page
@@ -120,7 +120,7 @@ test.describe('File Upload Tests', () => {
         // Create a new browser context with the specified viewport size
         const context = await browser.newContext({
             ignoreHTTPSErrors: true,
-            viewport: { width: 3840, height: 2160 } // Set to your screen resolution
+            viewport: { width: 1920, height: 1080 } // Set to your screen resolution
         });
 
         // Create a new page

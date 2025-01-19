@@ -59,11 +59,11 @@ test.describe('Mouse Over and Click Counter Tests', () => {
       await activeLink.scrollIntoViewIfNeeded();
       await activeLink.click({ clickCount: 5 });
       console.log("Clicked twice on 'Active link' to increment the counter.");
-
+      await page.waitForTimeout(2000);
       // Locate and verify the click counter
       const clickCount = page.locator('#clickButtonCount');
-      await expect(clickCount).toHaveText("2");
-      console.log("Verified that click counter is displayed as '2'.");
+      await expect(clickCount).toHaveText("5");
+      console.log("Verified that click counter is displayed as '5'.");
    });
 
 });

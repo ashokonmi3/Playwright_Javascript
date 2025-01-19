@@ -24,7 +24,7 @@ test.describe('Login Tests', () => {
    //    });
 
    //    const context = await browser.newContext({
-   //       // viewport: { width: 3840, height: 2160 } // Set viewport for consistency
+   //       // viewport: { width: 1920, height: 1080 } // Set viewport for consistency
    //       viewport: { width: 1720, height: 1440 } // Set viewport for consistency
 
    //    });
@@ -57,21 +57,22 @@ test.describe('Login Tests', () => {
 
    //    await browser.close();
    // });
-
+   // =================================================
    /**
     * Test Failed Login
-    * 
+    *
     * This test verifies that entering an incorrect password results in an error message.
-    * 
+    *
     * Steps:
     * 1. Navigate to the sample login page.
     * 2. Enter a valid username but incorrect password.
     * 3. Click the "Log In" button.
     * 4. Verify that an error message is displayed.
-    * 
+    *
     * Expected Outcome:
     * - The page should display "Invalid username/password" upon failed login.
     */
+   // -----------------------------
    test('Failed Login', async () => {
       // Launch browser with headless mode off
       const browser = await chromium.launch({
@@ -80,7 +81,7 @@ test.describe('Login Tests', () => {
       });
 
       const context = await browser.newContext({
-         // viewport: { width: 3840, height: 2160 } // Set viewport for consistency
+         // viewport: { width: 1920, height: 1080 } // Set viewport for consistency
          viewport: { width: 1720, height: 1440 } // Set to your screen resolution
 
       });
