@@ -14,9 +14,9 @@ test('this test may fail', async () => {
    expect(result).toBe(true); // This may fail randomly
 });
 
-test('this test will also pass', async () => {
-   expect(1 + 1).toBe(2); // This will always pass
+test('this test will always fail', async () => {
+   expect(1 + 1).toBe(1); // This will always pass
 });
 
 
-// npx playwright test 75-RetryallfailedCase.spec.js --retries = 3
+// npx playwright test 75-RetryallfailedCase.spec.js --retries=3

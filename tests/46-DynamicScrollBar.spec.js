@@ -25,7 +25,7 @@ test.describe('Dynamic Scrollbar Handling', () => {
 
       // Create a new browser context and page with specified viewport
       const context = await browser.newContext({
-         // viewport: { width: 3840, height: 2160 } // Set to your screen resolution
+         // viewport: { width: 1920, height: 1080 } // Set to your screen resolution
          viewport: { width: 1720, height: 1440 } // Set to your screen resolution
 
       });
@@ -41,7 +41,7 @@ test.describe('Dynamic Scrollbar Handling', () => {
       // Step 3: Scroll the button into view
       console.log("Scrolling the button into view...");
       await btn.scrollIntoViewIfNeeded(); // Scroll into view if needed
-
+      await page.waitForTimeout(2000);
       // Step 4: Take a screenshot to confirm visibility
       console.log("Taking a screenshot of the page...");
       await page.screenshot({ path: "test-scrollbars.jpg" });

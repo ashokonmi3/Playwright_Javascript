@@ -27,7 +27,7 @@ test.describe('Dynamic Class Attribute Tests', () => {
          slowMo: 5000 // Slow down actions for visibility
       });
       page = await browser.newPage({
-         // viewport: { width: 3840, height: 2160 } // Set to your screen resolution
+         // viewport: { width: 1920, height: 1080 } // Set to your screen resolution
          viewport: { width: 1720, height: 1440 },
 
       });
@@ -42,7 +42,7 @@ test.describe('Dynamic Class Attribute Tests', () => {
 
       // Hover over the button to trigger the tooltip
       await button.hover();
-
+      await page.waitForTimeout(5000);
       // Locate the tooltip
       const tooltip = page.locator('.tooltip');
 
@@ -51,9 +51,12 @@ test.describe('Dynamic Class Attribute Tests', () => {
 
       // Verify the tooltip text
       await expect(tooltip).toHaveText('Tooltip on left');
+      await page.waitForTimeout(2000);
 
       // Move the mouse away and ensure the tooltip disappears
       await page.mouse.move(0, 0);
+      await page.waitForTimeout(2000);
+
       await expect(tooltip).not.toBeVisible();
    });
 

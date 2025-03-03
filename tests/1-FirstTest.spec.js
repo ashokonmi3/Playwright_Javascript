@@ -20,7 +20,6 @@ test.describe('Example Test Suite', () => {
 
 });
 
-//  npx playwright test 1-FirstTest.spec.js --project=chromium --headed
 // =============================
 // Key Feature of Playwright
 //Cross - Browser Support

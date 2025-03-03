@@ -19,7 +19,7 @@ test.describe('Playwright Documentation Navigation Tests', () => {
       const browser = await chromium.launch({
          headless: false,
          slowMo: 500, // Slow down actions by 500ms for better visibility
-         // viewport: { width: 3840, height: 2160 }, // Set to your screen resolution
+         // viewport: { width: 1920, height: 1080 }, // Set to your screen resolution
          size: { width: 1280, height: 720 },
       });
 
@@ -39,12 +39,13 @@ test.describe('Playwright Documentation Navigation Tests', () => {
 
       // Navigate to the Playwright Python documentation website
       await page.goto('https://playwright.dev/python');
+      console.log("starting the test cases")
 
       // Locate the link with the role "link" and name "GET STARTED", then click it
       const link = page.locator('a', { hasText: 'GET STARTED' });
       await link.scrollIntoViewIfNeeded(); // Scroll into view if needed
       await link.click();
-
+      console.log("waiting for page load")
       // Assert that the URL is the expected URL after clicking the link
       await expect(page).toHaveURL(DOCS_URL);
 

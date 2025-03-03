@@ -30,7 +30,7 @@ test.describe('Handle New Tab Demo', () => {
       });
 
       const context = await browser.newContext({
-         // viewport: { width: 3840, height: 2160 }, // Set to your screen resolution
+         // viewport: { width: 1920, height: 1080 }, // Set to your screen resolution
          viewport: { width: 1720, height: 1440 },
 
          ignoreHTTPSErrors: true,
@@ -62,10 +62,12 @@ test.describe('Handle New Tab Demo', () => {
       // Switch back to the original page
       await page.bringToFront(); // Bring the original page to focus
       console.log(`Original page URL: ${page.url()}`);
+      await page.waitForTimeout(2000);
 
       // Switch back to the new tab
       await newPage.bringToFront(); // Bring the new tab back to focus
       console.log(`Switched back to new tab URL: ${newPage.url()}`);
+      await page.waitForTimeout(2000);
 
       // Close the new tab after use
       await newPage.close();

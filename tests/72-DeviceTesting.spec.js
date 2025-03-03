@@ -22,3 +22,4 @@ test('Take screenshot of example.com on Pixel 5', async ({ page }) => {
    // Close the context
    await context.close();
 });
+// https://github.com/microsoft/playwright/blob/main/packages/playwright-core/src/server/deviceDescriptorsSource.json

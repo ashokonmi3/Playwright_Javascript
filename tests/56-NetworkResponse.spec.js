@@ -30,7 +30,7 @@ test.describe('Network Fulfillment Demo', () => {
 
       // Create a new browser context and page with specified viewport
       const context = await browser.newContext({
-         // viewport: { width: 3840, height: 2160 } // Set to your screen resolution
+         // viewport: { width: 1920, height: 1080 } // Set to your screen resolution
          viewport: { width: 1720, height: 1440 },
 
       });
@@ -56,7 +56,7 @@ test.describe('Network Fulfillment Demo', () => {
       await page.goto("https://playwright.dev/");
 
       // Wait for a moment to ensure the request is made and fulfilled
-      await page.waitForTimeout(2000);
+      await page.waitForTimeout(20000);
       await page.screenshot({ path: "playwright_modified_response.jpg", fullPage: false });
 
       // Close the page

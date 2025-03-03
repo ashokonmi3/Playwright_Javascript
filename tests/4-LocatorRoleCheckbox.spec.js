@@ -59,11 +59,9 @@ test.describe('Radio and Checkbox Interaction Test Suite', () => {
     test('Test Radio and Checkbox Interaction', async () => {
         // Navigate to the specified website
         await page.goto("https://bootswatch.com/default/");
-
-
-        // Locate a radio button element using its role and name
+        // // Locate a radio button element using its role and name
         const radioButton = await page.getByRole('radio', { name: "Option one is this and that—be sure to include why it's great" });
-        await radioButton.scrollIntoViewIfNeeded();
+    await radioButton.scrollIntoViewIfNeeded();
 
         // Highlight the located radio button for visual confirmation
         await highlightElement(radioButton);

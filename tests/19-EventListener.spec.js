@@ -38,7 +38,7 @@ test.describe('Event Listener Tests', () => {
         });
 
         const context = await browser.newContext({
-            viewport: { width: 3840, height: 2160 }, // Set to your screen resolution
+            viewport: { width: 1920, height: 1080 }, // Set to your screen resolution
             ignoreHTTPSErrors: true,
         });
 

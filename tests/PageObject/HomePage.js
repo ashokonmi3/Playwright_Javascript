@@ -4,7 +4,7 @@ class HomePage {
 
         // Define locators for the Docs link and search input
         this.docsLink = this.page.locator('a:has-text("Docs")');
-        this.searchInput = this.page.locator('button[aria-label="Search"]'); // Adjust locator for search button
+        this.searchInput = this.page.getByRole("button", { name: "Search" }); // Adjust locator for search butto
         this.searchInputField = this.page.locator('input[placeholder="Search docs"]'); // Adjust for search input field
         this.searchResults = this.page.locator('div.DocSearch-Dropdown');
     }

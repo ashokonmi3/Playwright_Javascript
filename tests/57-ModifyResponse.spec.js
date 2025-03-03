@@ -30,8 +30,8 @@ test.describe('Network Fulfillment Demo', () => {
 
       // Create a new browser context and page with specified viewport
       const context = await browser.newContext({
-         // viewport: { width: 3840, height: 2160 } // Set to your screen resolution
-                  viewport: { width: 1720, height: 1440 },
+         // viewport: { width: 1920, height: 1080 } // Set to your screen resolution
+         viewport: { width: 1720, height: 1440 },
 
       });
       page = await context.newPage();
@@ -50,7 +50,9 @@ test.describe('Network Fulfillment Demo', () => {
             const modifiedBody = body.replace(
                "enables reliable end-to-end testing for modern web apps.", "is an awesome framework for web automation!"
             );
-
+            // The subsequent requests are made the original unmodified response can overwrite the modification
+            // the  mocked response body is only applied during the route.fulfill porecss for that sepcific request .
+            // The rest of the page or subsequent scripts can undo or over write the changes
             // Fulfill the route with the modified response
             await route.fulfill({
                response,
@@ -63,7 +65,7 @@ test.describe('Network Fulfillment Demo', () => {
 
       // Navigate to a webpage that triggers the API request
       await page.goto("https://playwright.dev/");
-      await page.waitForTimeout(2000); // Wait for a moment to ensure the request is made and fulfilled
+      await page.waitForTimeout(20000); // Wait for a moment to ensure the request is made and fulfilled
 
       // Take a screenshot of the page
       await page.screenshot({ path: "playwright_modified_content.jpg", fullPage: false });

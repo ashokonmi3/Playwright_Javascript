@@ -45,7 +45,7 @@ test.describe('XPath Selectors Test Suite', () => {
         // Create a new browser context with specified viewport
         context = await browser.newContext({
             ignoreHTTPSErrors: true, // Ignore HTTPS certificate issues
-            viewport: { width: 3840, height: 2160 } // Set to your screen resolution
+            viewport: { width: 1920, height: 1080 } // Set to your screen resolution
         });
 
         // Open a new page (tab) in the browser context
@@ -134,7 +134,7 @@ async function highlightElement(page, locator) {
 //         // Create a new browser context with specified viewport
 //         context = await browser.newContext({
 //             ignoreHTTPSErrors: true, // Ignore HTTPS certificate issues
-//             viewport: { width: 3840, height: 2160 } // Set to your screen resolution
+//             viewport: { width: 1920, height: 1080 } // Set to your screen resolution
 //         });
 
 //         // Open a new page (tab) in the browser context

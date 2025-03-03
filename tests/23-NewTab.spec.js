@@ -42,22 +42,27 @@ test.describe('New Tab Handling Test Suite', () => {
       const button = page.locator("#tabButton");
       console.log("there");
 
-    
+
       const [newPage] = await Promise.all([
          context.waitForEvent('page'), // Wait for the new page event (new tab)
-         button.click()                // Click the button that opens a new tab
+         button.click(),
+         // Promise.all() starts both promises(clicking the button and waiting for the new page) at the same time.
+         // The await waits until both promises resolve.    
       ]);
 
       // Print the URL of the new tab
       console.log(`New tab URL: ${newPage.url()}`);
+      await page.waitForTimeout(2000);
 
       // Switch back to the original page
       await page.bringToFront(); // Bring the original page to focus
       console.log(`Original page URL: ${page.url()}`);
+      await page.waitForTimeout(2000);
 
       // Switch back to the new tab
       await newPage.bringToFront(); // Bring the new tab back to focus
       console.log(`Switched back to new tab URL: ${newPage.url()}`);
+      await page.waitForTimeout(2000);
 
       // Close the new tab after use (optional)
       await newPage.close();

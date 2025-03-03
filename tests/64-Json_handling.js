@@ -4,29 +4,28 @@
 // fs.readFile(): Read JSO6k N data from a file and convert it into JavaScript objects.
 
 // JavaScript object to write into a JSON file
-const fs = require('fs');
-// File System, which is a built -in module in Node.js.It provides functionality to interact with the file system, allowing you to read from, write to, and manipulate files and directories.
+// // File System, which is a built -in module in Node.js.
+// // It provides functionality to interact with the file system,
+// //  allowing you to read from, write to, and manipulate files and directories.
+// ---------------------------
+// // Sample data to write to a JSON file
+// const fs = require('fs');
 
-// Sample data to write to a JSON file
-const data = {
-   name: "John Doe",
-   age: 30,
-   city: "New York",
-   skills: ["Python", "Machine Learning", "Automation"]
-};
+// const data = {
+//    name: "John Doe",
+//    age: 30,
+//    city: "New York",
+//    skills: ["Python", "Machine Learning", "Automation"]
+// };
 
-const dataJson = JSON.stringify(data, null, 4);// object --> json --> write to file
-console.log(dataJson);
-// // Write data to a JSON file
+// // // // Write data to a JSON file
+// fs.writeFileSync('data.json', JSON.stringify(data, null, 4));
+// console.log("Data written to file successfully.");
 
-fs.writeFileSync('data.json', dataJson);
-
-console.log("Data written to file successfully.");
-
-// // // Read data from the JSON file
-const jsonData = fs.readFileSync('data.json', 'utf8');
-const parsedData = JSON.parse(jsonData); // Json ---> read data ---> convert to javascript Object
-console.log("Data read from file:", parsedData);
+// // // // Read data from the JSON file
+// const jsonData = fs.readFileSync('data.json', 'utf8');
+// const parsedData = JSON.parse(jsonData);
+// console.log("Data read from file:", parsedData);
 
 // =================
 // const fs = require('fs');
@@ -42,7 +41,6 @@ console.log("Data read from file:", parsedData);
 // console.log(jsonData);
 // console.log(typeof jsonData);
 // ======================
-
 // Sample object
 // const data = {
 //    name: "Jane Smith",
@@ -77,8 +75,9 @@ console.log("Data read from file:", parsedData);
 // console.log(typeof data); // Output the type
 // =======================
 
+// const fs = require('fs');
 
-// Nested JavaScript object
+// // Nested JavaScript object
 // const data = {
 //    employee: {
 //       name: "Tom",
@@ -126,7 +125,7 @@ console.log("Data read from file:", parsedData);
 // Import fs module to work with file system
 // const fs = require('fs');
 
-// Load existing JSON data
+// // Load existing JSON data
 // fs.readFile('data.json', 'utf8', (err, jsonData) => {
 //    if (err) {
 //       console.error("Error reading file:", err);

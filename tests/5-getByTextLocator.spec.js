@@ -1,4 +1,4 @@
-// const { test, chromium } = require('@playwright/test');
+const { test, chromium } = require('@playwright/test');
 
 // test.describe('Text Locator Test Suite', () => {
 //     let browser;
@@ -17,7 +17,7 @@
 //         });
 
 //         context = await browser.newContext({
-//             // viewport: { width: 3840, height: 2160 }, // Set viewport to 4K resolution
+//             // viewport: { width: 1920, height: 1080 }, // Set viewport to 4K resolution
 //             viewport: { width: 1920, height: 1080 } // Set to a standard max resolution
 
 
@@ -125,7 +125,7 @@
 // });
 // ===========================
 
-const { test, chromium } = require('@playwright/test');
+// const { test, chromium } = require('@playwright/test');
 
 test.describe('Title Attribute Locator Test Suite', () => {
     let browser;
@@ -145,7 +145,7 @@ test.describe('Title Attribute Locator Test Suite', () => {
         // Create a new browser context
         const context = await browser.newContext({
             ignoreHTTPSErrors: true,  // Ignore HTTPS certificate issues
-            viewport: { width: 3840, height: 2160 } // Set to your screen resolution (change if needed)
+            viewport: { width: 1920, height: 1080 } // Set to your screen resolution (change if needed)
 
         });
 

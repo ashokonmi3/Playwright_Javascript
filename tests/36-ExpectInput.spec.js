@@ -27,7 +27,7 @@ test.describe('Playwright Documentation Search Input Tests', () => {
          slowMo: 5000 // Slow down actions for visibility
       });
       page = await browser.newPage({
-         // viewport: { width: 3840, height: 2160 } // Set to your screen resolution
+         // viewport: { width: 1920, height: 1080 } // Set to your screen resolution
          viewport: { width: 1720, height: 1440 },
 
       });
@@ -50,16 +50,18 @@ test.describe('Playwright Documentation Search Input Tests', () => {
       await expect(searchInput).toBeEditable();
 
       // 4. The search input should be empty initially before any text is entered
-      await expect(searchInput).toBeEmpty();
+      await expect(searchInput).toBeEmpty('checking the field is empty');
 
       // 5. Define a search query to fill into the input
       const query = "assertions";
+      // const query = "xyz";
 
       // 6. Fill the search input with the query
       await searchInput.fill(query);
+      await searchInput.fill('xyz');
 
       // 7. Verify that the input value now matches the query
-      await expect(searchInput).toHaveValue(query);
+      await expect(searchInput, "Expected value of search input to be '${query}'").toHaveValue(query);
    });
 
    test.afterAll(async () => {

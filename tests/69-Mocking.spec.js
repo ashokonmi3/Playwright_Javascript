@@ -11,8 +11,8 @@ async function onApiCall(route) {
    console.log(userData.lastName);
 
    // Modify the user data
-   userData.lastName = "Smith"; // Changing last name to "Smith"
-   userData.age = 20; // Updating age to 20
+   userData.lastName = "Sharma"; // Changing last name to "Smith"
+   userData.age = 200; // Updating age to 20
 
    // Fulfill the original route with the modified data
    await route.fulfill({

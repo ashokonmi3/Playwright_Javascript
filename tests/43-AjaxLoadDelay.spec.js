@@ -27,7 +27,7 @@ test.describe('Handling AJAX Load Delay in Playwright', () => {
       });
 
       // Create a new browser context and page
-      // const context = await browser.newContext({ viewport: { width: 3840, height: 2160 } });
+      // const context = await browser.newContext({ viewport: { width: 1920, height: 1080 } });
       const context = await browser.newContext({ viewport: { width: 1720, height: 1440 } });
 
       // viewport: { width: 1720, height: 1440 },

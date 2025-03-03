@@ -22,7 +22,7 @@ test.describe('Custom Screenshot Example', () => {
    test('should take a full-page and a visible viewport screenshot', async () => {
       // Launch browser with headless set to false and slowMo to slow down actions
       const browser = await chromium.launch({ headless: false, slowMo: 500 });
-      // const context = await browser.newContext({ viewport: { width: 3840, height: 2160 } }); // Set viewport resolution
+      // const context = await browser.newContext({ viewport: { width: 1920, height: 1080 } }); // Set viewport resolution
       const context = await browser.newContext(); // Set viewport resolution
 
       const page = await context.newPage();
@@ -46,7 +46,9 @@ test.describe('Custom Screenshot Example', () => {
       await page.screenshot({
          path: 'viewport_custom_screenshot.png',  // Save viewport screenshot
          fullPage: false,  // Capture only the visible part of the page
-         omitBackground: true,  // Omit the background to make it transparent
+         omitBackground: true,// Omit the background to make it transparent
+         quality
+           
       });
       await page.waitForTimeout(5000);
 

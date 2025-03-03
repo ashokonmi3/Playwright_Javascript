@@ -16,7 +16,7 @@ test.describe('Pseudo Classes Test', () => {
         // Create a new browser context with specified viewport
         context = await browser.newContext({
             ignoreHTTPSErrors: true, // Ignore HTTPS certificate issues
-            viewport: { width: 3840, height: 2160 } // Set to your screen resolution
+            viewport: { width: 1920, height: 1080 } // Set to your screen resolution
         });
 
         // Open a new page (tab) in the browser context
@@ -38,7 +38,7 @@ test.describe('Pseudo Classes Test', () => {
         await highlightElement(elementByText);
 
         // Example 3: Select the 1st button with text 'Primary'
-        elementByText = page.locator(":nth-match(button:has-text('Primary'), 1)");
+        elementByText = page.locator(":nth-match(button:has-text('Primary'), 1)"); // :nth-match(selector, n)
         await highlightElement(elementByText);
 
         // Example 4: Select the 3rd button with text 'Primary'

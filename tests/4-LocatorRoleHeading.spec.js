@@ -91,5 +91,3 @@ test.describe('Get By Role Heading Test Suite', () => {
         console.log('Cleanup after all tests');
     });
 });
-
-https://github.com/ashokonmi3/Playwright_Javascript

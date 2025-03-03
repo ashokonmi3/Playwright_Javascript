@@ -90,3 +90,14 @@ test.describe('Get By Role Locator Test Suite', () => {
         console.log('Cleanup after all tests');
     });
 });
+
+//https://www.w3.org/WAI/ARIA/apg/patterns/button/examples/button/
+// ImplicitRoles:
+
+// Many HTML elements have implicit roles assigned to them by default. For example:
+// <button> elements have an implicit role of button.
+//     <input type="submit"> or <input type="button"> also have the role button.
+//         <a> elements with href have the role link.
+//             Using getByRole Without Explicit Role Attribute:
+
+//             Even if the role="button" is not explicitly set in the HTML, Playwright can still find the element using getByRole('button').

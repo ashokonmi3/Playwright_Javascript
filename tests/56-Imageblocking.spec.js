@@ -30,7 +30,7 @@ test.describe('Network Routing Demo', () => {
 
       // Create a new browser context and page with specified viewport
       const context = await browser.newContext({
-         // viewport: { width: 3840, height: 2160 } // Set to your screen resolution
+         // viewport: { width: 1920, height: 1080 } // Set to your screen resolution
          viewport: { width: 1720, height: 1440 },
 
       });
@@ -50,7 +50,7 @@ test.describe('Network Routing Demo', () => {
 
       // Navigate to a webpage (e.g., Playwright's official site)
       await page.goto('https://playwright.dev/');
-      await page.waitForTimeout(2000); // Wait for 2 seconds for visibility
+      await page.waitForTimeout(20000); // Wait for 2 seconds for visibility
 
       // Take a screenshot of the page
       await page.screenshot({ path: 'playwright_imageblocked.jpg', fullPage: true });
