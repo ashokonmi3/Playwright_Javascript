@@ -89,13 +89,15 @@ test.describe('Page Load Time Measurement Tests', () => {
 // 'domcontentloaded':
 // Waits until the HTML is parsed, and the DOMContentLoaded event is fired.
 // This means that the HTML is parsed and any <script> tags are executed.
-// The page is considered interactive at this point, but external resources like images and stylesheets might still be loading.
+// The page is considered interactive at this point,
+//  but external resources like images and stylesheets might still be loading.
 
 // 'load' (default):
 // Waits for the full page load, including all resources such as images, stylesheets, and iframes.
 // This option ensures the entire page, along with its resources, is fully loaded and displayed.
 
 // 'networkidle':
-// Waits until there are no network requests for at least 500 milliseconds, meaning the page is completely loaded
+// Waits until there are no network requests for at least 500 milliseconds, 
+// meaning the page is completely loaded
 // and no further requests are being made (e.g., for AJAX calls or other asynchronous resources).
 // This is useful for more complex pages that continue to load resources after the initial page load.

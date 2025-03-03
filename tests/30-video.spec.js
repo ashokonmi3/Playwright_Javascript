@@ -44,20 +44,25 @@ test('Page has Get Started link', async () => {
 //  Questions:
 /*
 1. How do you record a video in Playwright using the test script itself?
-   Answer: By creating a browser context with the `recordVideo` option, specifying the directory where the video should be saved and the resolution.
+   Answer: By creating a browser context with the `recordVideo` option, 
+   specifying the directory where the video should be saved and the resolution.
 
 2. What is the impact of video recording on test performance?
-   Answer: Video recording can slightly impact test performance, especially for longer tests, as it requires additional resources to capture and store the video.
+   Answer: Video recording can slightly impact test performance, 
+   especially for longer tests, 
+   as it requires additional resources to capture and store the video.
 
 3. How can you adjust the resolution of the recorded video in Playwright?
-   Answer: You can specify the resolution of the video using the `size` option within the `recordVideo` parameter when creating a new browser context.
+   Answer: You can specify the resolution of the video using the `size` 
+   option within the `recordVideo` parameter when creating a new browser context.
 */
 
 /**
  * Interview Questions:
  * 
  * 1. **How does Playwright's video recording work?**
- *    - Answer: Playwright allows recording videos of the entire browser context. Each test that uses video recording
+ *    - Answer: Playwright allows recording videos of the entire browser context.
+ *     Each test that uses video recording
  *      saves the video in WebM format in the specified directory. The video gets recorded from the moment the context is created 
  *      until it is closed.
  * 

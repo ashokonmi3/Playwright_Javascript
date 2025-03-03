@@ -24,13 +24,10 @@ test.describe('Dynamic Class Attribute Tests', () => {
       // Launch the Chromium browser (non-headless for visibility)
       browser = await chromium.launch({
          headless: false, // Run tests in a visible browser window
-         slowMo: 5000 // Slow down actions for visibility
+         slowMo: 500 // Slow down actions for visibility
       });
       page = await browser.newPage({
-         // viewport: { width: 3840, height: 2160 } // Set to your screen resolution
-
-         
-         
+         viewport: { width: 3840, height: 2160 } // Set to your screen resolution
       });
       await page.goto(URL); // Navigate to the target page
    });
@@ -72,7 +69,8 @@ test.describe('Dynamic Class Attribute Tests', () => {
 /**
  * Interview Questions:
  * 1. What are dynamic class attributes, and why are they used in web applications?
- *    - Dynamic class attributes are classes that can change based on user interactions, page states, or other conditions. They are often used for styling elements conditionally, such as highlighting a button when it is active.
+ *    - Dynamic class attributes are classes that can change based on user interactions, 
+ * page states, or other conditions. They are often used for styling elements conditionally, such as highlighting a button when it is active.
  *
  * 2. How can you locate dynamic elements in Playwright?
  *    - You can locate dynamic elements using CSS selectors or XPath expressions that match part of the element's attributes or text content, allowing you to handle changes in the DOM structure.

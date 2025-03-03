@@ -4,25 +4,29 @@
 // fs.readFile(): Read JSO6k N data from a file and convert it into JavaScript objects.
 
 // JavaScript object to write into a JSON file
-// const fs = require('fs');
-// // File System, which is a built -in module in Node.js.It provides functionality to interact with the file system, allowing you to read from, write to, and manipulate files and directories.
+const fs = require('fs');
+// File System, which is a built -in module in Node.js.It provides functionality to interact with the file system, allowing you to read from, write to, and manipulate files and directories.
 
-// // Sample data to write to a JSON file
-// const data = {
-//    name: "John Doe",
-//    age: 30,
-//    city: "New York",
-//    skills: ["Python", "Machine Learning", "Automation"]
-// };
+// Sample data to write to a JSON file
+const data = {
+   name: "John Doe",
+   age: 30,
+   city: "New York",
+   skills: ["Python", "Machine Learning", "Automation"]
+};
 
-// // // Write data to a JSON file
-// fs.writeFileSync('data.json', JSON.stringify(data, null, 4));
-// console.log("Data written to file successfully.");
+const dataJson = JSON.stringify(data, null, 4);// object --> json --> write to file
+console.log(dataJson);
+// // Write data to a JSON file
+
+fs.writeFileSync('data.json', dataJson);
+
+console.log("Data written to file successfully.");
 
 // // // Read data from the JSON file
-// const jsonData = fs.readFileSync('data.json', 'utf8');
-// const parsedData = JSON.parse(jsonData);
-// console.log("Data read from file:", parsedData);
+const jsonData = fs.readFileSync('data.json', 'utf8');
+const parsedData = JSON.parse(jsonData); // Json ---> read data ---> convert to javascript Object
+console.log("Data read from file:", parsedData);
 
 // =================
 // const fs = require('fs');
@@ -159,39 +163,39 @@ This process demonstrates updating and saving data in a JSON file.
 */
 // ====================
 // Import 'https' module to make API requests
-const https = require('https');
+// const https = require('https');
 
-// URL of a sample REST API that returns JSON data
-const url = "https://jsonplaceholder.typicode.com/users";
+// // URL of a sample REST API that returns JSON data
+// const url = "https://jsonplaceholder.typicode.com/users";
 
-// Send a GET request to the API
-https.get(url, (response) => {
-   let data = '';
+// // Send a GET request to the API
+// https.get(url, (response) => {
+//    let data = '';
 
-   // Collect data chunks
-   response.on('data', (chunk) => {
-      data += chunk;
-   });
+//    // Collect data chunks
+//    response.on('data', (chunk) => {
+//       data += chunk;
+//    });
 
-   // Process data after receiving full response
-   response.on('end', () => {
-      if (response.statusCode === 200) {
-         const users = JSON.parse(data); // Parse JSON
+//    // Process data after receiving full response
+//    response.on('end', () => {
+//       if (response.statusCode === 200) {
+//          const users = JSON.parse(data); // Parse JSON
 
-         // Display each user's name, email, and city
-         users.forEach((user) => {
-            console.log(`Name: ${user.name}`);
-            console.log(`Email: ${user.email}`);
-            console.log(`City: ${user.address.city}`);
-            console.log('----------------');
-         });
-      } else {
-         console.error(`Error: ${response.statusCode}`);
-      }
-   });
-}).on('error', (err) => {
-   console.error("Request error:", err.message);
-});
+//          // Display each user's name, email, and city
+//          users.forEach((user) => {
+//             console.log(`Name: ${user.name}`);
+//             console.log(`Email: ${user.email}`);
+//             console.log(`City: ${user.address.city}`);
+//             console.log('----------------');
+//          });
+//       } else {
+//          console.error(`Error: ${response.statusCode}`);
+//       }
+//    });
+// }).on('error', (err) => {
+//    console.error("Request error:", err.message);
+// });
 // ================
 // const https = require('https');
 

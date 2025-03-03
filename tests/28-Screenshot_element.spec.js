@@ -23,9 +23,7 @@ test.describe('Element Screenshot Example', () => {
    test('should take a screenshot of a specific element', async () => {
       // Launch browser with headless set to false and slowMo to slow down actions
       const browser = await chromium.launch({ headless: false, slowMo: 500 });
-      // const context = await browser.newContext({ viewport: { width: 3840, height: 2160 } }); // Set viewport resolution
-      const context = await browser.newContext({ viewport: { width: 1720, height: 1440 } }); // Set viewport resolution
-
+      const context = await browser.newContext({ viewport: { width: 3840, height: 2160 } }); // Set viewport resolution
       const page = await context.newPage();
 
       // Navigate to the webpage
@@ -52,10 +50,14 @@ test.describe('Element Screenshot Example', () => {
 // Interview Questions:
 /**
  * 1. **How do you take a screenshot of a specific element in Playwright?**
- *    - Answer: You can use the `locator.screenshot()` method to capture a screenshot of a specific element located using `page.locator()`.
+ *    - Answer: You can use the `locator.screenshot()` method to capture a 
+ * screenshot of a specific 
+ * element located using `page.locator()`.
  * 
  * 2. **Why would you take an element-specific screenshot instead of the whole page?**
- *    - Answer: Taking an element-specific screenshot is useful when you only want to validate or debug a particular component of the UI, rather than capturing the entire page.
+ *    - Answer: Taking an element-specific screenshot is useful when you only 
+ * want to validate or debug a particular component of the UI, 
+ * rather than capturing the entire page.
  * 
  * 3. **How do you ensure an element is visible before interacting with or capturing it in Playwright?**
  *    - Answer: You can use `scrollIntoViewIfNeeded()` to ensure that the element is visible and scrolled into view before interacting with or capturing it.
@@ -64,5 +66,8 @@ test.describe('Element Screenshot Example', () => {
  *    - Answer: Capturing the entire page includes everything visible in the browser viewport, while capturing a single element only captures the area defined by the element’s dimensions, ignoring everything else on the page.
  * 
  * 5. **Can you control the dimensions of the screenshot for an element?**
- *    - Answer: Yes, the dimensions of the screenshot are automatically controlled by the element's size. You don't manually control dimensions when using `locator.screenshot()` because it captures the exact area occupied by the element.
+ *    - Answer: Yes, the dimensions of the screenshot are 
+ * automatically controlled by the element's size. 
+ * You don't manually control dimensions when using `locator.screenshot()` 
+ * because it captures the exact area occupied by the element.
  */

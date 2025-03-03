@@ -61,7 +61,7 @@ test.describe('Example Test Suite', () => {
 // Test executed in all browser because its configured in playwright.config.ts
 // npx playwright test--projet = chromium(only chrome test executed)
 
-Playrwright run plugin install to execute through click
+// Playrwright run plugin install to execute through click
 
 // UI execution
 // npx playwright test--projet = chromium--headed
