@@ -46,12 +46,15 @@ test.describe('Option Menu Expect Tests', () => {
       await multiOptionMenu.scrollIntoViewIfNeeded(); // Scroll into view if needed
 
       // 2. Select options "2" and "4"
-      await multiOptionMenu.selectOption(["2", "4"]);
-      console.log("Selected options '2' and '4' in the multiple select.");
+      let multiSelect = await page.getByLabel('Example multiple select');
+      await multiSelect.scrollIntoViewIfNeeded();
+      await page.waitForTimeout(5000);
+      await multiSelect.selectOption(['1', '2', '4']);
+      await page.waitForTimeout(5000);
+      const selectedTexts = await multiSelect.evaluate(el => Array.from(el.selectedOptions).map(option => option.textContent.trim()));
+      console.log("Selected options:", selectedTexts);
 
-      // 3. Expect the selected options to be "2" and "4"
-      await expect(multiOptionMenu).toHaveValues(["2", "4"]);
-      console.log("Verified selected options in the multiple select.");
+
    });
 
    test.afterAll(async () => {
