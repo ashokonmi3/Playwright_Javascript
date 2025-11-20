@@ -1,4 +1,3 @@
-const { test, chromium } = require('@playwright/test');
 
 /**
  * Test suite for handling new tabs in Playwright
@@ -19,6 +18,7 @@ const { test, chromium } = require('@playwright/test');
  * - `slowMo: 500` is added to slow down the actions for better visualization during testing.
  * - Viewport is set to a high resolution (3840x2160) to match typical screen resolutions.
  */
+const { test, chromium } = require('@playwright/test');
 
 test.describe('Handle New Tab Demo', () => {
 

@@ -46,7 +46,7 @@ test('Monitor Network Events', async () => {
 
    // Navigate to a webpage (e.g., Playwright's official site)
    await page.goto('https://playwright.dev/');
-   await page.waitForLoadState('load');
+   // await page.waitForLoadState('load');
 
    // Wait for 2 seconds to enhance visibility for students
    await page.waitForTimeout(2000);

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Playwright Multi-Locator Demo</title>
+  <style>
+    body { font-family: Arial; padding: 20px; }
+    .card { border: 1px solid #ccc; padding: 12px; border-radius: 8px; width: 250px; margin: 10px; }
+    .highlight { background: #fffae6; }
+    .section-title { font-weight: bold; margin-top: 30px; }
+  </style>
+</head>
+<body>
+
+<h1>Playwright – Multiple Locator Demo</h1>
+
+<div class="section-title">1. User List (AND Condition + Filter)</div>
+
+<table id="userTable" border="1" cellpadding="10">
+  <tr>
+    <th>Name</th><th>Role</th><th>Status</th><th>Action</th>
+  </tr>
+  <tr class="userRow">
+    <td>Ashok</td>
+    <td class="role">Admin</td>
+    <td class="status">Active</td>
+    <td><button class="editBtn">Edit</button></td>
+  </tr>
+  <tr class="userRow">
+    <td>Priya</td>
+    <td class="role">Editor</td>
+    <td class="status">Inactive</td>
+    <td><button class="editBtn">Edit</button></td>
+  </tr>
+</table>
+
+
+<div class="section-title">2. Buttons (OR Condition)</div>
+
+<button id="primaryAction">Primary Action</button>
+<button class="alternativeAction">Alternate Action</button>
+
+
+<div class="section-title">3. Products (has + hasText)</div>
+
+<div class="card product">
+  <div class="title">Bluetooth Speaker</div>
+  <button class="buy">Buy Now</button>
+</div>
+
+<div class="card product">
+  <div class="title">Wireless Mouse</div>
+  <button class="buy">Buy Now</button>
+</div>
+
+<script>
+document.querySelectorAll('.editBtn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    btn.closest('.userRow').classList.add('highlight');
+  });
+});
+
+document.getElementById('primaryAction').addEventListener('click', () => {
+  document.body.insertAdjacentHTML('beforeend', '<div id="actionResult">PRIMARY CLICKED</div>');
+});
+
+document.querySelector('.alternativeAction').addEventListener('click', () => {
+  document.body.insertAdjacentHTML('beforeend', '<div id="actionResult">ALTERNATE CLICKED</div>');
+});
+
+document.querySelectorAll('.buy').forEach(btn => {
+  btn.addEventListener('click', () => {
+    btn.closest('.product').classList.add('highlight');
+  });
+});
+</script>
+
+</body>
+</html>

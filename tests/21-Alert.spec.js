@@ -1,5 +1,3 @@
-// const { chromium } = require('playwright'); // Import Playwright library
-// const { test } = require('@playwright/test');
 
 // /**
 //  * Handle Alert Demo
@@ -20,6 +18,10 @@
 //  * - Event listeners: Using `page.on('dialog', handlerFunction)` to handle alerts.
 //  * - Synchronization: Ensuring that the script waits for the alert to be handled properly.
 //  */
+
+// const { chromium } = require('playwright'); // Import Playwright library
+// const { test } = require('@playwright/test');
+
 // test.describe('Alert Handling Tests', () => {
 //     test('should handle JavaScript alerts', async () => {
 //         // Launch the browser in non-headless mode with a slow motion delay of 500ms
@@ -28,7 +30,7 @@
 //             slowMo: 500 // Slow down actions for better visibility
 //         });
 //         const context = await browser.newContext({
-//             viewport: { width: 3840, height: 2160 }, // Set to your screen resolution
+//             viewport: { width: 1500, height: 1080 }, // Set to your screen resolution
 //         });
 //         const page = await context.newPage();
 
@@ -63,8 +65,6 @@
 //     dialog.accept(); // Accept the alert
 // }
 // ===============================
-// const { chromium } = require('playwright'); // Import Playwright library
-// const { test } = require('@playwright/test');
 
 /**
  * Handle Alert Demo
@@ -85,6 +85,9 @@
  * - Event listeners: Using `page.on('dialog', handlerFunction)` to handle alerts.
  * - Synchronization: Ensuring that the script waits for the alert to be handled properly.
  */
+// const { chromium } = require('playwright'); // Import Playwright library
+// const { test } = require('@playwright/test');
+
 
 // test.describe('Alert Handling Tests', () => {
 //    test('should handle JavaScript alerts', async () => {
@@ -94,8 +97,8 @@
 //          slowMo: 5000 // Slow down actions for better visibility
 //       });
 //       const context = await browser.newContext({
-//          // viewport: { width: 1920, height: 1080 }, // Set to your screen resolution
-//          viewport: { width: 1720, height: 1440 }, // Set to your screen resolution
+//          viewport: { width: 1920, height: 1080 }, // Set to your screen resolution
+//          // viewport: { width: 1720, height: 1440 }, // Set to your screen resolution
 
 //       });
 //       const page = await context.newPage();
@@ -133,6 +136,8 @@
 // }
 // ===============================
 // Alert with accept and cancel button
+// const { chromium } = require('playwright'); // Import Playwright library
+// const { test } = require('@playwright/test');
 // test.describe('Alert Handling Tests', () => {
 //    test('should handle JavaScript confirmation alerts', async () => {
 //       // Launch the browser in non-headless mode with a slow motion delay of 500ms
@@ -168,22 +173,19 @@
 //     });
 // });
 
-/**
- * Handles the dialog event by printing the alert text and accepting the confirmation alert.
- *
-//  * @param {Dialog} dialog - The dialog object representing the JavaScript confirmation alert.
-//  */
+// /**
+//  * Handles the dialog event by printing the alert text and accepting the confirmation alert.
+//  *
+// //  * @param {Dialog} dialog - The dialog object representing the JavaScript confirmation alert.
+// //  */
 // async function handleDialog(dialog) {
 //    console.log(`Confirmation alert text: ${dialog.message()}`); // Print the alert text to the console
 //    await new Promise(resolve => setTimeout(resolve, 2000));
-//    dialog.accept(); // Accept the confirmation alert
+//    // dialog.accept(); // Accept the confirmation alert
 
-//    // dialog.dismiss(); // dismiss the confirmation alert
+//    dialog.dismiss(); // dismiss the confirmation alert
 // }
 // ===================
-const { chromium } = require('playwright'); // Import Playwright library
-const { test } = require('@playwright/test');
-
 /**
  * Handle Alert Demo
  *
@@ -204,6 +206,11 @@ const { test } = require('@playwright/test');
  * - Synchronization: Waiting for actions to complete to ensure alerts are handled properly.
  *
  */
+
+const { chromium } = require('playwright'); // Import Playwright library
+const { test } = require('@playwright/test');
+
+
 test.describe('Alert Handling Tests', () => {
    test('should handle JavaScript prompt alerts', async () => {
       // Launch the browser in non-headless mode with a slow motion delay of 500ms
@@ -241,11 +248,11 @@ test.describe('Alert Handling Tests', () => {
    });
 });
 
-/**
- * Handles the dialog event by printing the prompt text and accepting the prompt.
- *
- * @param {Dialog} dialog - The dialog object representing the JavaScript prompt.
- */
+// /**
+//  * Handles the dialog event by printing the prompt text and accepting the prompt.
+//  *
+//  * @param {Dialog} dialog - The dialog object representing the JavaScript prompt.
+//  */
 async function handleDialog(dialog) {
    console.log(`Prompt text: ${dialog.message()}`); // Print the prompt text to the console
    await new Promise(resolve => setTimeout(resolve, 2000))

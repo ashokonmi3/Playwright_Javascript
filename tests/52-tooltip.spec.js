@@ -28,7 +28,7 @@ test.describe('Dynamic Class Attribute Tests', () => {
       });
       page = await browser.newPage({
          // viewport: { width: 1920, height: 1080 } // Set to your screen resolution
-         viewport: { width: 1720, height: 1440 },
+         // viewport: { width: 1720, height: 1440 },
 
       });
       await page.goto(URL); // Navigate to the target page

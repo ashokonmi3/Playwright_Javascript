@@ -22,7 +22,7 @@
 // fs.writeFileSync('data.json', JSON.stringify(data, null, 4));
 // console.log("Data written to file successfully.");
 
-// // // // Read data from the JSON file
+// // // // // Read data from the JSON file
 // const jsonData = fs.readFileSync('data.json', 'utf8');
 // const parsedData = JSON.parse(jsonData);
 // console.log("Data read from file:", parsedData);
@@ -162,39 +162,39 @@ This process demonstrates updating and saving data in a JSON file.
 */
 // ====================
 // Import 'https' module to make API requests
-// const https = require('https');
+const https = require('https');
 
 // // URL of a sample REST API that returns JSON data
-// const url = "https://jsonplaceholder.typicode.com/users";
+const url = "https://jsonplaceholder.typicode.com/users";
 
-// // Send a GET request to the API
-// https.get(url, (response) => {
-//    let data = '';
+// Send a GET request to the API
+https.get(url, (response) => {
+   let data = '';
 
-//    // Collect data chunks
-//    response.on('data', (chunk) => {
-//       data += chunk;
-//    });
+   // Collect data chunks
+   response.on('data', (chunk) => {
+      data += chunk;
+   });
 
-//    // Process data after receiving full response
-//    response.on('end', () => {
-//       if (response.statusCode === 200) {
-//          const users = JSON.parse(data); // Parse JSON
+   // Process data after receiving full response
+   response.on('end', () => {
+      if (response.statusCode === 200) {
+         const users = JSON.parse(data); // Parse JSON
 
-//          // Display each user's name, email, and city
-//          users.forEach((user) => {
-//             console.log(`Name: ${user.name}`);
-//             console.log(`Email: ${user.email}`);
-//             console.log(`City: ${user.address.city}`);
-//             console.log('----------------');
-//          });
-//       } else {
-//          console.error(`Error: ${response.statusCode}`);
-//       }
-//    });
-// }).on('error', (err) => {
-//    console.error("Request error:", err.message);
-// });
+         // Display each user's name, email, and city
+         users.forEach((user) => {
+            console.log(`Name: ${user.name}`);
+            console.log(`Email: ${user.email}`);
+            console.log(`City: ${user.address.city}`);
+            console.log('----------------');
+         });
+      } else {
+         console.error(`Error: ${response.statusCode}`);
+      }
+   });
+}).on('error', (err) => {
+   console.error("Request error:", err.message);
+});
 // ================
 // const https = require('https');
 

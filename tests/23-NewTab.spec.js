@@ -1,6 +1,3 @@
-const { chromium } = require('playwright');
-const { test } = require('@playwright/test'); // Importing the test function from Playwright
-
 /**
     * This function demonstrates how to handle new tabs in Playwright.
     *
@@ -17,6 +14,9 @@ const { test } = require('@playwright/test'); // Importing the test function fro
     * 3. Click the button to open the new tab and switch focus between the original and new tabs.
     */
 
+
+const { chromium } = require('playwright');
+const { test } = require('@playwright/test'); // Importing the test function from Playwright
 
 
 test.describe('New Tab Handling Test Suite', () => {

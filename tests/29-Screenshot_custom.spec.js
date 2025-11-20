@@ -47,7 +47,7 @@ test.describe('Custom Screenshot Example', () => {
          path: 'viewport_custom_screenshot.png',  // Save viewport screenshot
          fullPage: false,  // Capture only the visible part of the page
          omitBackground: true,// Omit the background to make it transparent
-         quality
+         // quality
            
       });
       await page.waitForTimeout(5000);

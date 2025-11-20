@@ -41,7 +41,7 @@ test.describe('Scrape This Site - Movies Page Tests', () => {
       // Wait for the first movie title in the table to load
       const firstTableData = page.locator('td.film-title').first();
       // await firstTableData.waitFor();
-      await page.waitForTimeout(10000); // Waits for 10 seconds (10,000 milliseconds)
+      await page.waitForTimeout(20000); // Waits for 10 seconds (10,000 milliseconds)
 
       // Verify the link is still visible after the action
       // await expect(link).toBeVisible();

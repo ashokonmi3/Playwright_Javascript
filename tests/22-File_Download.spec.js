@@ -11,7 +11,7 @@ test.describe('File Download Test Suite', () => {
    async function onDownload(download) {
       console.log("Download received!");
       // Saves the downloaded file after completion.
-      const downloadpath = path.join(__dirname, 'night22.jpg');
+      const downloadpath = path.join(__dirname, 'night223.jpg');
       console.log(downloadpath);
       await download.saveAs(downloadpath);
       // await download.saveAs("night22.jpg");

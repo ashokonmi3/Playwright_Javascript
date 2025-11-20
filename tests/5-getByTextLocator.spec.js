@@ -1,4 +1,4 @@
-const { test, chromium } = require('@playwright/test');
+// const { test, chromium } = require('@playwright/test');
 
 // test.describe('Text Locator Test Suite', () => {
 //     let browser;
@@ -125,7 +125,7 @@ const { test, chromium } = require('@playwright/test');
 // });
 // ===========================
 
-// const { test, chromium } = require('@playwright/test');
+const { test, chromium } = require('@playwright/test');
 
 test.describe('Title Attribute Locator Test Suite', () => {
     let browser;

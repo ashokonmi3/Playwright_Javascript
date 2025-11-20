@@ -63,6 +63,7 @@ test.describe('Get By Role Heading Test Suite', () => {
 
         // Locate a heading element using its role and name
         const heading = await page.getByRole('heading', { name: "Heading 2" });
+        // const heading2 = await page.getByRole();
 
         // Scroll the heading into view
         await heading.scrollIntoViewIfNeeded();
