@@ -1,7 +1,3 @@
-Here is the **complete README.md in a single copy-paste block**.
-Just **copy everything below and paste it into a file named `README.md`** in your Git repository.
-
-````markdown
 # Playwright Automation Project
 
 This repository contains automated tests built using **Microsoft Playwright**.
@@ -15,16 +11,14 @@ Follow the steps below to set up the project on a new machine and run the tests.
 Playwright requires **Node.js**.
 
 1. Go to the Node.js website  
-   https://nodejs.org
+https://nodejs.org
 
 2. Download and install the **LTS version**
 
 3. Verify installation using:
 
-```bash
-node -v
+node -v  
 npm -v
-```
 
 If both commands return versions, Node.js and npm are installed correctly.
 
@@ -36,15 +30,11 @@ Normally Node.js installer automatically adds npm to the system PATH.
 
 Verify using:
 
-```bash
 npm -v
-```
 
 If npm is not recognized, add the following path to **Environment Variables → PATH**
 
-```
 C:\Program Files\nodejs\
-```
 
 Restart the terminal after updating the PATH.
 
@@ -54,10 +44,8 @@ Restart the terminal after updating the PATH.
 
 Clone the project repository.
 
-```bash
-git clone <repository-url>
+git clone <repository-url>  
 cd playwright_javascript
-```
 
 ---
 
@@ -67,9 +55,7 @@ The project already contains a **package.json** file with required dependencies.
 
 Install dependencies using:
 
-```bash
 npm install
-```
 
 This will install:
 
@@ -78,10 +64,8 @@ This will install:
 
 It will also create:
 
-```
-node_modules
-package-lock.json
-```
+- node_modules
+- package-lock.json
 
 ---
 
@@ -91,9 +75,7 @@ Playwright requires browsers to run tests.
 
 Run the following command:
 
-```bash
 npx playwright install
-```
 
 This will install:
 
@@ -107,9 +89,7 @@ This will install:
 
 Check the installed Playwright version:
 
-```bash
 npx playwright --version
-```
 
 ---
 
@@ -117,15 +97,11 @@ npx playwright --version
 
 Run a specific test file:
 
-```bash
 npx playwright test .\example.spec.ts
-```
 
 Run all tests:
 
-```bash
 npx playwright test
-```
 
 ---
 
@@ -139,9 +115,7 @@ Microsoft provides an official Playwright extension for Visual Studio Code.
 2. Click **Extensions**
 3. Search for:
 
-```
 Playwright Test for VSCode
-```
 
 Publisher: **Microsoft**
 
@@ -174,19 +148,17 @@ You can also run tests from the **Testing panel** in VS Code.
 
 ## 9. Typical Project Structure
 
-```
-playwright_javascript
-│
-├── package.json
-├── package-lock.json
-├── playwright.config.js
-├── node_modules
-│
-├── tests
-│   └── example.spec.ts
-│
-└── README.md
-```
+playwright_javascript  
+│  
+├── package.json  
+├── package-lock.json  
+├── playwright.config.js  
+├── node_modules  
+│  
+├── tests  
+│   └── example.spec.ts  
+│  
+└── README.md  
 
 ---
 
@@ -196,25 +168,18 @@ playwright_javascript
 
 If you see this error:
 
-```
 running scripts is disabled on this system
-```
 
 Run PowerShell as Administrator and execute:
 
-```powershell
 Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
-```
 
 Then run:
 
-```bash
 npm install
-```
 
 ---
 
 ## Author
 
 Playwright Automation Project
-````
