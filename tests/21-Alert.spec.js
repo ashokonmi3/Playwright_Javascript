@@ -55,11 +55,11 @@
 //     });
 // });
 
-// /**
-//  * Handles the dialog event by printing the alert text and accepting the alert.
-//  *
-//  * @param {Dialog} dialog - The dialog object representing the JavaScript alert.
-//  */
+/**
+ * Handles the dialog event by printing the alert text and accepting the alert.
+ *
+ * @param {Dialog} dialog - The dialog object representing the JavaScript alert.
+ */
 // function handleDialog(dialog) {
 //     console.log(`Alert text: ${dialog.message()}`); // Print the alert text to the console
 //     dialog.accept(); // Accept the alert
@@ -248,11 +248,11 @@ test.describe('Alert Handling Tests', () => {
    });
 });
 
-// /**
-//  * Handles the dialog event by printing the prompt text and accepting the prompt.
-//  *
-//  * @param {Dialog} dialog - The dialog object representing the JavaScript prompt.
-//  */
+/**
+ * Handles the dialog event by printing the prompt text and accepting the prompt.
+ *
+ * @param {Dialog} dialog - The dialog object representing the JavaScript prompt.
+ */
 async function handleDialog(dialog) {
    console.log(`Prompt text: ${dialog.message()}`); // Print the prompt text to the console
    await new Promise(resolve => setTimeout(resolve, 2000))
