@@ -1,23 +1,21 @@
-const { test, expect } = require('@playwright/test');
+const { test, expect } = require("@playwright/test");
 
 // Test suite
-test.describe('Example Test Suite', () => {
+test.describe("Example Test Suite", () => {
+  // Single test case
+  test("example test", async ({ page }) => {
+    await page.goto("https://example.com");
+    const title = await page.title();
+    expect(title).toBe("Example Domain");
+  });
 
-    // Single test case
-    test('example test', async ({ page }) => {
-        await page.goto('https://example.com');
-        const title = await page.title();
-        expect(title).toBe('Example Domain');
-    });
-
-    // Test case with multiple assertions
-    test('example with assertions', async ({ page }) => {
-        await page.goto('https://example.com');
-        const title = await page.title();
-        expect(title).toBe('Example Domain');
-        await expect(page.locator('h1')).toHaveText('Example Domain');
-    });
-
+  // Test case with multiple assertions
+  test("example with assertions", async ({ page }) => {
+    await page.goto("https://example.com");
+    const title = await page.title();
+    expect(title).toBe("Example Domain");
+    await expect(page.locator("h1")).toHaveText("Example Domain");
+  });
 });
 
 // =============================
@@ -52,7 +50,6 @@ test.describe('Example Test Suite', () => {
 //   | (Browser Tab)      | < --- User Interaction-- -
 //   +--------------------+
 
-
 // installation npm init playwright@latest
 // Execute test through cli
 // npx playwright test
@@ -70,7 +67,6 @@ test.describe('Example Test Suite', () => {
 
 // Executing particular test case
 // npx playwright test - g "has title" --project = chromium
-
 
 // ======================================================================
 // Feature	         |     JavaScript	         |    TypeScript
@@ -117,3 +113,16 @@ SUMMARY:
 - Playwright → Modern, faster, supports parallel, auto-wait, and built-in tools.
 ===========================================================
 */
+
+// import {test, expect} from'@playwright/test';
+
+// import data from '... / test.json';
+// test ("login using json file",aync({page})=>{
+// await page.goto("https://eprople.com/login");
+// const username = data.username;
+// const password= data.password;
+
+// await page.fill('#username', username);
+// await page.fill('#username', username);
+
+// });

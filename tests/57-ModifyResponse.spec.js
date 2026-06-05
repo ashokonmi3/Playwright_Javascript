@@ -1,80 +1,87 @@
-const { test, expect, chromium } = require('@playwright/test');
+const { test, expect, chromium } = require("@playwright/test");
 
-test.describe('Network Fulfillment Demo', () => {
-   /**
-    * Demonstrates how to use network routing in Playwright to fulfill network requests with custom responses.
-    *
-    * Network Fulfillment Concepts:
-    * ------------------------------
-    * - **Fulfill**: Responding to a network request with custom data instead of letting the original request proceed.
-    *
-    * In this example:
-    * ----------------
-    * We will intercept a specific API request and respond with a custom JSON object instead of the actual response.
-    *
-    * Workflow:
-    * ---------
-    * 1. Launch a Chromium browser in non-headless mode.
-    * 2. Create a new page.
-    * 3. Attach a network route to fulfill a specific API request.
-    * 4. Navigate to a webpage and observe the behavior.
-    * 5. Close the page and the browser.
-    */
+test.describe("Network Fulfillment Demo", () => {
+  /**
+   * Demonstrates how to use network routing in Playwright to fulfill network requests with custom responses.
+   *
+   * Network Fulfillment Concepts:
+   * ------------------------------
+   * - **Fulfill**: Responding to a network request with custom data instead of letting the original request proceed.
+   *
+   * In this example:
+   * ----------------
+   * We will intercept a specific API request and respond with a custom JSON object instead of the actual response.
+   *
+   * Workflow:
+   * ---------
+   * 1. Launch a Chromium browser in non-headless mode.
+   * 2. Create a new page.
+   * 3. Attach a network route to fulfill a specific API request.
+   * 4. Navigate to a webpage and observe the behavior.
+   * 5. Close the page and the browser.
+   */
 
-   test('Fulfill API request with custom response', async ({ page }) => {
-      // Launch the browser in non-headless mode
-      const browser = await chromium.launch({
-         headless: false,
-         slowMo: 500,  // Slow down operations for better visualization
-      });
+  test("Fulfill API request with custom response", async ({ page }) => {
+    // Launch the browser in non-headless mode
+    const browser = await chromium.launch({
+      headless: false,
+      slowMo: 500, // Slow down operations for better visualization
+    });
 
-      // Create a new browser context and page with specified viewport
-      const context = await browser.newContext({
-         // viewport: { width: 1920, height: 1080 } // Set to your screen resolution
-         viewport: { width: 1720, height: 1440 },
+    // Create a new browser context and page with specified viewport
+    const context = await browser.newContext({
+      // viewport: { width: 1920, height: 1080 } // Set to your screen resolution
+      viewport: { width: 1720, height: 1440 },
+    });
+    page = await context.newPage();
 
-      });
-      page = await context.newPage();
+    // Event listener function to fulfill specific API requests
+    await page.route("**/*", async (route) => {
+      // Check if the request URL matches the API we want to mock
+      if (route.request().url() === "https://playwright.dev/") {
+        console.log(`Fulfilling request for: ${route.request().url()}`);
 
-      // Event listener function to fulfill specific API requests
-      await page.route("**/*", async (route) => {
-         // Check if the request URL matches the API we want to mock
-         if (route.request().url() === "https://playwright.dev/") {
-            console.log(`Fulfilling request for: ${route.request().url()}`);
+        // Fetch the original response
+        const response = await route.fetch();
+        const body = await response.text();
 
-            // Fetch the original response
-            const response = await route.fetch();
-            const body = await response.text();
+        // Modify the response body
+        const modifiedBody = body.replace(
+          "enables reliable web automation for testing, scripting, and AI agents.",
+          "is an awesome framework for web automation!",
+        );
+        // The subsequent requests are made the original unmodified response can overwrite the modification
+        // the  mocked response body is only applied during the route.fulfill porecss for that sepcific request .
+        // The rest of the page or subsequent scripts can undo or over write the changes
+        // Fulfill the route with the modified response
+        console.log(`Fulfilling request now`);
+        console.log(modifiedBody);
 
-            // Modify the response body
-            const modifiedBody = body.replace(
-               "enables reliable end-to-end testing for modern web apps.", "is an awesome framework for web automation!"
-            );
-            // The subsequent requests are made the original unmodified response can overwrite the modification
-            // the  mocked response body is only applied during the route.fulfill porecss for that sepcific request .
-            // The rest of the page or subsequent scripts can undo or over write the changes
-            // Fulfill the route with the modified response
-            await route.fulfill({
-               response,
-               body: modifiedBody
-            });
-         } else {
-            await route.continue();  // Continue other requests
-         }
-      });
+        await route.fulfill({
+          response,
+          body: modifiedBody,
+        });
+        await page.waitForTimeout(20000); // Wait for a moment to ensure the request is made and fulfilled
+      } else {
+        await route.continue(); // Continue other requests
+      }
+    });
 
-      // Navigate to a webpage that triggers the API request
-      await page.goto("https://playwright.dev/");
-      await page.waitForTimeout(20000); // Wait for a moment to ensure the request is made and fulfilled
+    // Navigate to a webpage that triggers the API request
+    await page.goto("https://playwright.dev/");
+    await page.waitForTimeout(20000); // Wait for a moment to ensure the request is made and fulfilled
 
-      // Take a screenshot of the page
-      await page.screenshot({ path: "playwright_modified_content.jpg", fullPage: false });
+    // Take a screenshot of the page
+    await page.screenshot({
+      path: "playwright_modified_content.jpg",
+      fullPage: false,
+    });
 
-      // Close the page
-      await page.close();
-      // Close the browser if done with all tasks
-      await browser.close();
-   });
+    // Close the page
+    await page.close();
+    // Close the browser if done with all tasks
+    await browser.close();
+  });
 });
 
 /**

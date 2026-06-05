@@ -1,5 +1,5 @@
 // Import necessary modules from Playwright
-const { test, expect, chromium } = require('@playwright/test');
+const { test, expect, chromium } = require("@playwright/test");
 
 /**
  * Test Suite for Playwright Documentation Navigation
@@ -12,64 +12,65 @@ const { test, expect, chromium } = require('@playwright/test');
  * - Verify that the main heading has the exact expected text.
  */
 
-test.describe('Playwright Documentation Inner Text Tests', () => {
-   let browser;
-   let page;
-   const URL = "https://playwright.dev/python";
+test.describe("Playwright Documentation Inner Text Tests", () => {
+  let browser;
+  let page;
+  const URL = "https://playwright.dev/python";
 
-   // Runs once before the entire suite
-   test.beforeAll(async () => {
-      // Launch the browser in UI mode
-      browser = await chromium.launch({
-         headless: false, // Runs in UI mode
-         slowMo: 5000, // Slows down actions by 500ms for visibility
-      });
-      page = await browser.newPage({
-         // viewport: { width: 1920, height: 1080 } // Set to your screen resolution
-         viewport: { width: 1720, height: 1440 },
+  // Runs once before the entire suite
+  test.beforeAll(async () => {
+    // Launch the browser in UI mode
+    browser = await chromium.launch({
+      headless: false, // Runs in UI mode
+      slowMo: 5000, // Slows down actions by 500ms for visibility
+    });
+    page = await browser.newPage({
+      // viewport: { width: 1920, height: 1080 } // Set to your screen resolution
+      viewport: { width: 1720, height: 1440 },
+    });
+    await page.goto(URL); // Navigate to the specified URL
+  });
 
-      });
-      await page.goto(URL); // Navigate to the specified URL
-   });
+  test("Validate Dropdown Menu Contains Programming Languages", async () => {
+    // Locate the dropdown menu that contains programming languages
+    const dropdownMenu = page.locator("ul.dropdown__menu");
 
-   test('Validate Dropdown Menu Contains Programming Languages', async () => {
-      // Locate the dropdown menu that contains programming languages
-      const dropdownMenu = page.locator("ul.dropdown__menu");
+    // Expect API: Check if the dropdown menu contains the text "Python"
+    await dropdownMenu.scrollIntoViewIfNeeded(); // Scroll into view if needed
+    await expect(dropdownMenu).toContainText("Python");
+    // Playwright doesn't need the dropdown to be visible for this check; it only needs the element and its text to exist in the DOM.
+    console.log("Dropdown menu contains 'Python'.");
 
-      // Expect API: Check if the dropdown menu contains the text "Python"
-      await dropdownMenu.scrollIntoViewIfNeeded(); // Scroll into view if needed
-      await expect(dropdownMenu).toContainText("Python");
-      // Playwright doesn't need the dropdown to be visible for this check; it only needs the element and its text to exist in the DOM.
-      console.log("Dropdown menu contains 'Python'.");
+    // Expect API: Check if the dropdown menu contains the text "Node.js"
+    await expect(dropdownMenu).toContainText("Node.js");
+    console.log("Dropdown menu contains 'Node.js'.");
 
-      // Expect API: Check if the dropdown menu contains the text "Node.js"
-      await expect(dropdownMenu).toContainText("Node.js");
-      console.log("Dropdown menu contains 'Node.js'.");
+    // Expect API: Check if the dropdown menu contains the text "Java"
+    await expect(dropdownMenu).toContainText("Java");
+    console.log("Dropdown menu contains 'Java'.");
 
-      // Expect API: Check if the dropdown menu contains the text "Java"
-      await expect(dropdownMenu).toContainText("Java");
-      console.log("Dropdown menu contains 'Java'.");
+    // Expect API: Check if the dropdown menu contains the text ".NET"
+    await expect(dropdownMenu).toContainText(".NET");
+    console.log("Dropdown menu contains '.NET'.");
+  });
 
-      // Expect API: Check if the dropdown menu contains the text ".NET"
-      await expect(dropdownMenu).toContainText(".NET");
-      console.log("Dropdown menu contains '.NET'.");
-   });
+  test("Validate Main Heading Text", async () => {
+    // Locate the main heading of the page
+    const heading = page.locator("h1.hero__title");
 
-   test('Validate Main Heading Text', async () => {
-      // Locate the main heading of the page
-      const heading = page.locator("h1.hero__title");
+    // Expect API: Verify that the main heading has the exact text
+    await heading.scrollIntoViewIfNeeded(); // Scroll into view if needed
+    await expect(heading).toHaveText(
+      "Playwright enables reliable web automation for testing, scripting, and AI agents.",
+    );
+    console.log("Heading has the exact expected text.");
+  });
 
-      // Expect API: Verify that the main heading has the exact text
-      await heading.scrollIntoViewIfNeeded(); // Scroll into view if needed
-      await expect(heading).toHaveText("Playwright enables reliable end-to-end testing for modern web apps.");
-      console.log("Heading has the exact expected text.");
-   });
-
-   // Runs once after all tests in the suite
-   test.afterAll(async () => {
-      console.log('Cleanup after all tests');
-      await browser.close(); // Close the browser after tests are completed
-   });
+  // Runs once after all tests in the suite
+  test.afterAll(async () => {
+    console.log("Cleanup after all tests");
+    await browser.close(); // Close the browser after tests are completed
+  });
 });
 
 /*

@@ -2,10 +2,10 @@
   "cookies": [
     {
       "name": "_gid",
-      "value": "GA1.2.214839457.1763616432",
+      "value": "GA1.2.1315828136.1780634248",
       "domain": ".goodcv.com",
       "path": "/",
-      "expires": 1763702839,
+      "expires": 1780720666,
       "httpOnly": false,
       "secure": false,
       "sameSite": "Lax"
@@ -15,7 +15,7 @@
       "value": "1",
       "domain": ".goodcv.com",
       "path": "/",
-      "expires": 1763616491,
+      "expires": 1780634307,
       "httpOnly": false,
       "secure": false,
       "sameSite": "Lax"
@@ -25,100 +25,100 @@
       "value": "google",
       "domain": ".www.goodcv.com",
       "path": "/",
-      "expires": 1798176432.210098,
+      "expires": 1815194248.157688,
       "httpOnly": false,
       "secure": false,
       "sameSite": "Lax"
     },
     {
       "name": "_fbp",
-      "value": "fb.1.1763616434261.87245532139202484",
+      "value": "fb.1.1780634248672.36031848760551081",
       "domain": ".goodcv.com",
       "path": "/",
-      "expires": 1771392439,
+      "expires": 1788410266,
       "httpOnly": false,
       "secure": false,
       "sameSite": "Lax"
     },
     {
       "name": "g_state",
-      "value": "{\"i_l\":0,\"i_ll\":1763616435029,\"i_b\":\"SiWDdTxvinMLa2WaO6s7meKMF9Jcfd5IqsEzXyxrN+A\"}",
+      "value": "{\"i_l\":0,\"i_ll\":1780634249125,\"i_b\":\"Z845WqchoPyhPkPMQyW4SxRjEG4mwwC5DM5W3GKUUmM\",\"i_e\":{\"enable_itp_optimization\":0},\"i_et\":1780634248515}",
       "domain": "www.goodcv.com",
       "path": "/",
-      "expires": 1779168435,
-      "httpOnly": false,
-      "secure": false,
-      "sameSite": "Lax"
-    },
-    {
-      "name": "NID",
-      "value": "526=FARhe6NjbqEowvgUaV-GDAmTzxu9cf535w88Itddud61Vb1cAR6xQOn1L0gyBxCos2LlPzMwD8dDEX8pJpDirsg-KFe2LvcaWRAdM1A0GPNmjyh08j1-gZXqdLj09uT65Vmt1JtrHDHTdpaUMx-cIPDv8MSrru8UWxeKXrUR_eL04OGO2g10VIqN_kxXh_1_m8TlmRXuYKaz5IU",
-      "domain": ".google.com",
-      "path": "/",
-      "expires": 1779427634.010863,
-      "httpOnly": true,
-      "secure": true,
-      "sameSite": "None"
-    },
-    {
-      "name": "_gcl_au",
-      "value": "1.1.784317563.1763616432.181947188.1763616436.1763616436",
-      "domain": ".goodcv.com",
-      "path": "/",
-      "expires": 1771392432,
+      "expires": 1796186249,
       "httpOnly": false,
       "secure": false,
       "sameSite": "Lax"
     },
     {
       "name": "IDE",
-      "value": "AHWqTUm09YbCOC1JLFg7w8dsqrWUWrKYwIlsErLyA_aibjoX8YfDaI07Fq0uEW0v",
+      "value": "AHWqTUlZQwnORehAy0b6I3kHso_as3B9QhzK4fnlzJeZDQvp_7vjzBpIeg0btiZS",
       "domain": ".doubleclick.net",
       "path": "/",
-      "expires": 1798176436.359798,
+      "expires": 1815194259.463101,
       "httpOnly": true,
       "secure": true,
       "sameSite": "None"
     },
     {
+      "name": "_gcl_au",
+      "value": "1.1.2036360583.1780634248.1905325274.1780634259.1780634264",
+      "domain": ".goodcv.com",
+      "path": "/",
+      "expires": 1788410248,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    },
+    {
       "name": "XSRF-TOKEN",
-      "value": "eyJpdiI6IlFrajNJNlNkQnZMVG1hNUZmMFBmb3c9PSIsInZhbHVlIjoibmhpdW1NRHRsdmhJOHRkSGI1aVRHNDNHQktLTkVNUnpFVVNiaWgzVlVWVzhzeTV4SEhydTNoM1lUOVBLOFwva3FsQmlvMDFrXC91bVB6dEVGY1I1Tkh6QTFUQm5nMGtPeStnaWh3Nmtma3ZqMkpocXI5ZnJhbDFJRFM1Skgwc2hWKyIsIm1hYyI6IjdlMGUxZDU0ZWFkZWE2MWM4ZmE5ZDAxZWE0OTk2NWUwMzJmOWI1MmZlYTY5MzNkMGIyNmNmOTM0ZjU4Y2U0ZjcifQ%3D%3D",
+      "value": "eyJpdiI6InJMeUliajE2eVwvVG1UR1IwbDU4QkJnPT0iLCJ2YWx1ZSI6IlwvV3J0aG94WkVMN1c0VG4wUXdvaDVOREE3NjVFT0dEXC84SjM0VnVXNnZPSTFPeTB5QnBaMjE1TlFqdm1BK2YwZjBDZmh0Y1luTzZ2WGFXeU9neXA3UXNDOTFoN1djR0hvUVgwa3FITUsrcDFaSG43TXlVNjJKRWxYYVlKeXJocTYiLCJtYWMiOiI3MWU3ZmE2NDg0MjU5NzI3ZjYyOGQwN2Y0ZDhmY2I5MWM3YzZiYzkxZTk2ZDY4M2YzNzU1MWU2MWQ2Njg4MGFmIn0%3D",
       "domain": "www.goodcv.com",
       "path": "/",
-      "expires": 1763623639.516149,
+      "expires": 1780641466.399246,
       "httpOnly": false,
       "secure": false,
       "sameSite": "Lax"
     },
     {
       "name": "laravel_session",
-      "value": "eyJpdiI6ImcrdEQ5K1BMeHY1UkdjVGdTSnNrbHc9PSIsInZhbHVlIjoiM2piWnVpNzlrK3RjcElsaEw3ZmJ3VXpnZlRCQnVlWURpQTRqdFl1OHlRUzQ0ZURyU2VrVWIrN3QySFc4YTJwZTAra1o3a2FcL29nSVdHcFNDTHNRdVphQURWa1hLM3lHNUdxMEVTdzcrNjRqK2U1TEhYVnl5MHd6T1NYUDdvSnh2IiwibWFjIjoiMzMzODI5ODUwY2E1NTIzN2JjYjNkMjY2NmU1NjFlOTMzMzk4ZjA1ZGJjMWFlOGI2NzYxNjRmOTM3NzBjN2M5MyJ9",
+      "value": "eyJpdiI6Ik5FcnA3QVZTU2N3NXBSejhmNVExSEE9PSIsInZhbHVlIjoib2p0TnRVSzBaVXpcL2MyZytINlBNTFFQRmNxUVF5S2FtbmttRG9hMFpjc3FaT0hYcWZFMk1TUWhId0RPb1BqQVZGR0xoYVdUbENkWTlXUmFPYUVEcTI2S0tPbWlic00wdHlWenE2MklPNFpMenhPWms4bFI4Nm8rcVJqdVgxZjdvIiwibWFjIjoiZDg5MDM0NzM5Mzc2OWI3YjFjZmFmYjE4OTgyZmY0ZTJkMWNmYzkzNzk5ODFjMDMyNzdjODI1MDZhMDc3ZGQ1YSJ9",
       "domain": "www.goodcv.com",
       "path": "/",
-      "expires": 1763623639.516272,
+      "expires": 1780641466.399527,
       "httpOnly": true,
       "secure": false,
       "sameSite": "Lax"
     },
     {
       "name": "_ga_RMCNQFN538",
-      "value": "GS2.1.s1763616431$o1$g1$t1763616439$j52$l0$h0",
+      "value": "GS2.1.s1780634248$o1$g1$t1780634266$j42$l0$h0",
       "domain": ".goodcv.com",
       "path": "/",
-      "expires": 1798176439.641633,
+      "expires": 1815194266.575626,
       "httpOnly": false,
       "secure": false,
       "sameSite": "Lax"
     },
     {
       "name": "_ga",
-      "value": "GA1.2.2125722898.1763616432",
+      "value": "GA1.2.539265259.1780634248",
       "domain": ".goodcv.com",
       "path": "/",
-      "expires": 1798176439.644241,
+      "expires": 1815194266.58045,
       "httpOnly": false,
       "secure": false,
       "sameSite": "Lax"
+    },
+    {
+      "name": "__cf_bm",
+      "value": "6JG9n8xkg4AEfslKxQOSO4M5c6HO9k_PKzSJr6IzxtY-1780634267.1801283-1.0.1.1-aR7angrgaMNJjI9hIZHjya2gdgKGtZjdWjFrGSJKU0kB5ooNYSq_jrf06lr__Yn.ftEfLorn3zhSChXyn2w7K8OAgg.CWZLO0.zqLxtolDwiK5BTsKenajP6l2yBvmTJ",
+      "domain": ".twitter.com",
+      "path": "/",
+      "expires": 1780636067.973968,
+      "httpOnly": true,
+      "secure": true,
+      "sameSite": "None"
     }
   ],
   "origins": [
@@ -131,15 +131,11 @@
         },
         {
           "name": "_gcl_ls",
-          "value": "{\"schema\":\"gcl\",\"version\":1,\"gcl_ctr\":{\"value\":{\"value\":0,\"timeouts\":0,\"creationTimeMs\":1763616431604},\"expires\":1771392431604}}"
+          "value": "{\"schema\":\"gcl\",\"version\":1,\"gcl_ctr\":{\"value\":{\"value\":0,\"timeouts\":0,\"errors\":0,\"eopCount\":0,\"creationTimeMs\":1780634248374},\"expires\":1788410248374}}"
         },
         {
           "name": "lastExternalReferrerTime",
-          "value": "1763616433872"
-        },
-        {
-          "name": "topicsLastReferenceTime",
-          "value": "1763616439799"
+          "value": "1780634248571"
         }
       ]
     }

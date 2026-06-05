@@ -1,34 +1,41 @@
-// login.js
-const { chromium } = require('playwright');
+/*===========================
+Saving he state
+==========================*/
 
-(async () => {
-   // Launch the browser
-   const browser = await chromium.launch({ headless: false, slowMo: 500 });
+// const { test } = require("@playwright/test");
 
-   // Create a new browser context
-   const context = await browser.newContext();
+// test("Generate authentication state", async ({ page, context }) => {
+//   await page.goto("https://www.goodcv.com/login");
 
-   // Create a new page
-   const page = await context.newPage();
+//   await page.fill('input[placeholder="Email Address"]', "ashokonmi@gmail.com");
+//   await page.fill('input[placeholder="Password"]', "asharma1");
 
-   // Visit the login page
-   await page.goto("https://www.goodcv.com/login");
+//   await page.click('input[type="submit"][value="Log In"]');
 
-   // Enter email address
-   await page.fill('input[placeholder="Email Address"]', "ashokonmi@gmail.com");
+//   await context.storageState({
+//     path: "playwright/.auth/storage_state.json",
+//   });
+// });
 
-   // Enter password
-   await page.fill('input[placeholder="Password"]', "asharma1");
+/*===========================
+Reusing the saved state
+==========================*/
+const { test } = require("@playwright/test");
 
-   // Click the Log In button
-   await page.click('input[type="submit"][value="Log In"]');
+test("Verify login using stored authentication state", async ({ browser }) => {
+  // Create a new browser context with stored authentication state
+  const context = await browser.newContext({
+    storageState: "playwright/.auth/storage_state.json",
+  });
 
-   // Optionally pause if your account has two-factor authentication
-   // await page.pause();
+  // Create a new page
+  const page = await context.newPage();
 
-   // Save authentication state
-   await context.storageState({ path: 'playwright/.auth/storage_state.json' });
+  // Navigate to the application
+  await page.goto("https://www.goodcv.com/login");
 
-   // Close the browser
-   await browser.close();
-})();
+  // Pause for debugging/manual interaction
+  await page.pause();
+
+  await context.close();
+});

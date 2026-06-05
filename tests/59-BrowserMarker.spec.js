@@ -1,56 +1,38 @@
-const { test, expect, firefox, webkit } = require('@playwright/test');
+const { test, expect, firefox, webkit } = require("@playwright/test");
 
-/**
- * Test case that runs only on Firefox.
- * The 'test.use' method specifies that this test will run on the Firefox browser.
- */
-test.use({ browserName: 'firefox' });
-test('firefox only test', async ({ page }) => {
-   // Navigate to the example website
-   await page.goto('https://example.com');
+test.describe("Browser Specific Test Suite", () => {
+  test("should run only on Firefox", async ({ page, browserName }) => {
+    test.skip(browserName !== "firefox", "This test runs only on Firefox");
 
-   // Assert that the page title matches the expected title
-   expect(await page.title()).toBe('Example Domain');
-});
+    await page.goto("https://example.com");
+    await expect(page).toHaveTitle("Example Domain");
+  });
 
-/**
- * Test case that skips Firefox.
- * This test is marked with 'test.skip', so it will not run on Firefox.
- */
-test.use({ browserName: 'firefox' });
-test.skip('skip firefox test', async ({ page }) => {
-   // Navigate to the example website
-   await page.goto('https://example.com');
+  test("should skip Firefox browser", async ({ page, browserName }) => {
+    test.skip(browserName === "firefox", "This test is skipped on Firefox");
 
-   // Assert that the page title matches the expected title
-   expect(await page.title()).toBe('Example Domain');
-});
+    await page.goto("https://example.com");
+    await expect(page).toHaveTitle("Example Domain");
+  });
 
-/**
- * Parameterized test case to run on multiple browsers.
- * This section defines a list of browsers and runs tests for each browser in the list.
- */
-const browsers = ['firefox', 'webkit']; // List of browsers to test
+  const browsers = [
+    { name: "firefox", browserType: firefox },
+    { name: "webkit", browserType: webkit },
+  ];
 
-// Loop through each browser name to create parameterized tests
-browsers.forEach((customBrowserName) => {
-   test(`test on ${customBrowserName}`, async () => {
-      // Launch the specified browser (firefox or webkit) in headful mode (visible)
-      const browser = await (customBrowserName === 'firefox' ? firefox : webkit).launch({
-         headless: false, // Set to false to run in UI mode
-         slowMo: 500 // Slow down operations for better visualization
+  browsers.forEach(({ name, browserType }) => {
+    test(`should run manually on ${name}`, async () => {
+      const browser = await browserType.launch({
+        headless: false,
+        slowMo: 500,
       });
 
-      // Create a new page in the browser context
       const page = await browser.newPage();
 
-      // Navigate to the example website
-      await page.goto('https://example.com');
+      await page.goto("https://example.com");
+      await expect(page).toHaveTitle("Example Domain");
 
-      // Assert that the page title matches the expected title
-      expect(await page.title()).toBe('Example Domain');
-
-      // Close the browser after the test is complete
       await browser.close();
-   });
+    });
+  });
 });

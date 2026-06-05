@@ -11,12 +11,15 @@
 // retries: process.env.CI ? 2 : 2, 2 time retry
 // retries: process.env.CI ? 2 : 0, original
 
-const { test } = require('@playwright/test');
+const { test } = require("@playwright/test");
 
-test('Retry test example', async ({ page }) => {
-   const randomValue = Math.random();
-   console.log(`Current value: ${randomValue}`);
-   if (randomValue > 0.2) {
-      throw new Error('Test failed to trigger retry!');
-   }
+test("Retry test example", async ({ page }) => {
+  const randomValue = Math.random();
+  console.log(`Current value: ${randomValue}`);
+  if (randomValue > 0.2) {
+    throw new Error("Test failed to trigger retry!");
+  }
 });
+
+// Retry config will not work if we execute throught the playwright extension
+// npx playwright test 74-RetryForFailedCase.spec.js --retries=3

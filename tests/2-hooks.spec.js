@@ -1,43 +1,42 @@
-const { test } = require('@playwright/test');
+const { test } = require("@playwright/test");
 
-test.describe('Test Suite with Hooks', () => {
-    // Runs once before the entire suite
-    test.beforeAll(async () => {
-        console.log('Setup before running tests');
-    });
+test.describe("Test Suite with Hooks", () => {
+  // Runs once before the entire suite
+  test.beforeAll(async () => {
+    console.log("beforeAll: Setup before running tests beforeAll");
+  });
 
-    // Runs before each test case
-    test.beforeEach(async ({ page }) => {
-        console.log('test execution started');
+  // Runs before each test case
+  test.beforeEach(async ({ page }) => {
+    console.log("beforeEach: test execution started");
 
-        await page.goto('https://example.com');
-    });
+    await page.goto("https://example.com");
+  });
 
-    // Test case 1
-    test('Test Case 1', async ({ page }) => {
-        const title = await page.title();
-        console.log('Title:', title);
-    });
+  // Test case 1
+  test("Test Case 1", async ({ page }) => {
+    const title = await page.title();
+    console.log("Title:", title);
+  });
 
-    // Test case 2
-    test('Test Case 2', async ({ page }) => {
-        const content = await page.locator('h1').textContent();
-        console.log('Content:', content);
-    });
+  // Test case 2
+  test("Test Case 2", async ({ page }) => {
+    const content = await page.locator("h1").textContent();
+    console.log("Content:", content);
+  });
 
-    // Runs after each test case
-    test.afterEach(async ({ page }) => {
-        console.log('test execution complete');
+  // Runs after each test case
+  test.afterEach(async ({ page }) => {
+    console.log("afterEach: test execution complete");
 
-        await page.close();
-    });
+    await page.close();
+  });
 
-    // Runs once after all tests in the suite
-    test.afterAll(async () => {
-        console.log('Cleanup after all tests');
-    });
+  // Runs once after all tests in the suite
+  test.afterAll(async () => {
+    console.log("afterAll:Cleanup after all tests");
+  });
 });
-
 
 // Execute something only once for this complete test suite
 // before all --> create log file
@@ -58,11 +57,9 @@ test.describe('Test Suite with Hooks', () => {
 // test4
 // launch example.com
 
-
-
 // after all --> save this file
 
 // test1
 // laucnh example.com
 // execute test
-// close browser 
+// close browser

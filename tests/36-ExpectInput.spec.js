@@ -1,13 +1,13 @@
 // docsInputExpect.spec.js
 
-const { test, expect, chromium } = require('@playwright/test');
+const { test, expect, chromium } = require("@playwright/test");
 
 /**
  * Test Suite for Playwright Documentation Search Input Assertions
- * 
+ *
  * This suite demonstrates the usage of the expect API in Playwright
  * for asserting the visibility, editability, and value of an input field.
- * 
+ *
  * Topics covered:
  * - Verifying initial visibility of an input field
  * - Checking if an input field is editable
@@ -15,59 +15,61 @@ const { test, expect, chromium } = require('@playwright/test');
  * - Filling an input field and verifying its value
  */
 
-test.describe('Playwright Documentation Search Input Tests', () => {
-   let browser;
-   let page;
-   const URL = "https://playwright.dev/python";
+test.describe("Playwright Documentation Search Input Tests", () => {
+  let browser;
+  let page;
+  const URL = "https://playwright.dev/python";
 
-   test.beforeAll(async () => {
-      // Launch the Chromium browser (non-headless for visibility)
-      browser = await chromium.launch({
-         headless: false, // Run tests in a visible browser window
-         slowMo: 5000 // Slow down actions for visibility
-      });
-      page = await browser.newPage({
-         // viewport: { width: 1920, height: 1080 } // Set to your screen resolution
-         viewport: { width: 1720, height: 1440 },
+  test.beforeAll(async () => {
+    // Launch the Chromium browser (non-headless for visibility)
+    browser = await chromium.launch({
+      headless: false, // Run tests in a visible browser window
+      slowMo: 5000, // Slow down actions for visibility
+    });
+    page = await browser.newPage({
+      // viewport: { width: 1920, height: 1080 } // Set to your screen resolution
+      viewport: { width: 1720, height: 1440 },
+    });
+    await page.goto(URL); // Navigate to the Playwright Python documentation page
+  });
 
-      });
-      await page.goto(URL); // Navigate to the Playwright Python documentation page
-   });
+  test("Validate Search Input Functionality", async () => {
+    // Locate the search input using its placeholder
+    const searchInput = page.getByPlaceholder("Search docs");
 
-   test('Validate Search Input Functionality', async () => {
-      // Locate the search input using its placeholder
-      const searchInput = page.getByPlaceholder("Search docs");
+    // 1. Initially, the search input should be hidden
+    await expect(searchInput).toBeHidden();
 
-      // 1. Initially, the search input should be hidden
-      await expect(searchInput).toBeHidden();
+    // 2. Locate the search button and click it to focus on the search input
+    const searchButton = page.getByRole("button", { name: "Search" });
+    await searchButton.click();
 
-      // 2. Locate the search button and click it to focus on the search input
-      const searchButton = page.getByRole("button", { name: "Search" });
-      await searchButton.click();
+    // 3. After clicking the button, the search input should become visible and editable
+    await expect(searchInput).toBeVisible();
+    await expect(searchInput).toBeEditable();
 
-      // 3. After clicking the button, the search input should become visible and editable
-      await expect(searchInput).toBeVisible();
-      await expect(searchInput).toBeEditable();
+    // 4. The search input should be empty initially before any text is entered
+    await expect(searchInput).toBeEmpty("checking the field is empty");
 
-      // 4. The search input should be empty initially before any text is entered
-      await expect(searchInput).toBeEmpty('checking the field is empty');
+    // 5. Define a search query to fill into the input
+    const query = "assertions";
+    // const query = "xyz";
 
-      // 5. Define a search query to fill into the input
-      const query = "assertions";
-      // const query = "xyz";
+    // 6. Fill the search input with the query
+    await searchInput.fill(query);
+    //  await searchInput.fill("xyz");
 
-      // 6. Fill the search input with the query
-      await searchInput.fill(query);
-      await searchInput.fill('xyz');
+    // 7. Verify that the input value now matches the query
+    await expect(
+      searchInput,
+      "Expected value of search input to be '${query}'",
+    ).toHaveValue(query);
+  });
 
-      // 7. Verify that the input value now matches the query
-      await expect(searchInput, "Expected value of search input to be '${query}'").toHaveValue(query);
-   });
-
-   test.afterAll(async () => {
-      // Close the browser after the test
-      await browser.close();
-   });
+  test.afterAll(async () => {
+    // Close the browser after the test
+    await browser.close();
+  });
 });
 
 /**

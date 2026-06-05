@@ -1,4 +1,4 @@
-const { test, expect, request } = require('@playwright/test');
+const { test, expect, request } = require("@playwright/test");
 
 // In Playwright, request.newContext() is a method used to create a new request context.
 // This context allows you to manage HTTP requests independently from other contexts,
@@ -18,26 +18,26 @@ const { test, expect, request } = require('@playwright/test');
 // Network Interception: Request contexts can also be used for intercepting network requests,
 // enabling you to modify requests and responses on the fly.
 
-test('test_users_api', async ({ playwright }) => {
-   // Create a new API context with base URL
-   const apiContext = await playwright.request.newContext({
-      baseURL: "https://dummyjson.com"
-   });
+test("test_users_api", async ({ playwright }) => {
+  // Create a new API context with base URL
+  const apiContext = await playwright.request.newContext({
+    baseURL: "https://dummyjson.com",
+  });
 
-   // Make GET request to the specified endpoint
-   const response = await apiContext.get("/users/1");
+  // Make GET request to the specified endpoint https://dummyjson.com/user/1
+  const response = await apiContext.get("/users/1");
 
-   // Parse the JSON response
-   const userData = await response.json();
-   console.log(userData);
+  // Parse the JSON response
+  const userData = await response.json();
+  console.log(userData);
 
-   // Assertions to validate the data
-   expect(userData).toHaveProperty("firstName");
-   expect(userData).toHaveProperty("lastName");
+  // Assertions to validate the data
+  expect(userData).toHaveProperty("firstName");
+  expect(userData).toHaveProperty("lastName");
 
-   expect(userData.firstName).toBe("Emily");
-   expect(userData.lastName).toBe("Johnson");
+  expect(userData.firstName).toBe("Emily");
+  expect(userData.lastName).toBe("Johnson");
 
-   // Dispose of the API context to close the session
-   await apiContext.dispose();
+  // Dispose of the API context to close the session
+  await apiContext.dispose();
 });
