@@ -36,7 +36,7 @@ test.describe('Load Delay Handling Tests', () => {
       const delayedButton = page.getByRole("button", { name: "Button Appearing After Delay" });
 
       // 4. Wait for the button to be available and visible
-      await delayedButton.waitFor();
+      await delayedButton.waitFor(); //the default timeout is 30 seconds (30000 ms).
       // await delayedButton.waitFor({timeout:5000});
 
 

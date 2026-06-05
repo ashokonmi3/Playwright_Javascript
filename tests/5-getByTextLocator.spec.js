@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 const { test, chromium } = require("@playwright/test");
+=======
+const { test, chromium } = require('@playwright/test');
+>>>>>>> 883ce131e8f9fd5e4e4f5f960c7120568036702a
 
 test.describe("Text Locator Test Suite", () => {
   let browser;
@@ -108,7 +112,7 @@ test.describe("Text Locator Test Suite", () => {
 //     test('Test Alt Text Locator', async () => {
 //         // Locate and highlight the image with alt text "Google"
 //         const googleLogo = page.locator('img[alt="Google"]');
-//         await googleLogo.scrollIntoViewIfNeeded(); // Scrolls into view if not already visible
+//         // await googleLogo.scrollIntoViewIfNeeded(); // Scrolls into view if not already visible
 //         await googleLogo.evaluate(el => el.style.border = '2px solid red'); // Highlights by adding red border
 //         await page.waitForTimeout(5000);
 

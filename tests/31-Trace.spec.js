@@ -50,7 +50,7 @@ test.describe('Playwright Documentation Navigation Tests', () => {
       await expect(page).toHaveURL(DOCS_URL);
 
       // Stop tracing and save it to a file
-      await context.tracing.stop({ path: 'trace333.zip' });
+      await context.tracing.stop({ path: 'trace_capegemini.zip' });
       // Traaceviewer https://trace.playwright.dev/
       // Close the browser context and browser
       await context.close();
